@@ -738,10 +738,10 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                 alt="Todo App Screenshot"
               />
               <Typography variant="caption" sx={{ display: "block", mt: 2 }}>
-                Created by <Link href="https://github.com/maciekt07">maciekt07</Link> <br />
+                Created by <Link href="https://github.com/natansilva31">natansilva31</Link> <br />
                 Explore the project on GitHub:{" "}
                 <Link
-                  href="https://github.com/maciekt07/TodoApp"
+                  href="https://github.com/natansilva31/TodoApp"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
