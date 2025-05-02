@@ -25,7 +25,7 @@
 
 Para instalar e rodar o projeto localmente, siga os seguintes passos:
 
-- Clone o repositório: `git clone https://github.com/maciekt07/TodoApp.git`
+- Clone o repositório: `git clone https://github.com/NatanSilva31/TodoApp`
 - Navegue até o diretório do projeto: `cd TodoApp`
 - Instale as dependências: `npm install`
 - Inicie o servidor de desenvolvimento: `npm run dev`
