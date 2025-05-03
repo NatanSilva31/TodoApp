@@ -63,11 +63,11 @@ const Home = () => {
   const timeGreeting = useMemo(() => {
     const currentHour = new Date().getHours();
     if (currentHour < 12 && currentHour >= 5) {
-      return "Good morning";
+      return "Bom dia";
     } else if (currentHour < 18 && currentHour > 12) {
-      return "Good afternoon";
+      return "Boa tarde";
     } else {
-      return "Good evening";
+      return "Boa noite";
     }
   }, []);
 
