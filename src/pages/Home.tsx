@@ -59,23 +59,21 @@ const Home = () => {
     };
   }, [tasks]);
 
-  // Memoize time-based greeting
-// -3 representa o fuso de Brasília
+// Memoize time-based greeting
 const timeGreeting = useMemo(() => {
   const now = new Date();
-  const localHour = now.getUTCHours() - 3; // Ajuste o -3 se seu fuso for diferente
+  const localHour = now.getHours(); // Hora local diretamente, sem ajuste de UTC
 
-  const hour = (localHour + 24) % 24; // Garante que fique entre 0 e 23
+  console.log("Hora local:", localHour); // Para depurar e verificar o valor da hora
 
-  if (hour >= 5 && hour < 12) {
+  if (localHour >= 5 && localHour < 12) {
     return "Bom dia";
-  } else if (hour >= 12 && hour < 18) {
+  } else if (localHour >= 12 && localHour < 18) {
     return "Boa tarde";
   } else {
     return "Boa noite";
   }
 }, []);
-
 
   // Memoize task completion text
   const taskCompletionText = useMemo(() => {
