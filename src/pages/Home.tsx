@@ -60,16 +60,22 @@ const Home = () => {
   }, [tasks]);
 
   // Memoize time-based greeting
-  const timeGreeting = useMemo(() => {
-    const currentHour = new Date().getHours();
-    if (currentHour < 12 && currentHour >= 5) {
-      return "Bom dia";
-    } else if (currentHour < 18 && currentHour > 12) {
-      return "Boa tarde";
-    } else {
-      return "Boa noite";
-    }
-  }, []);
+// -3 representa o fuso de Brasília
+const timeGreeting = useMemo(() => {
+  const now = new Date();
+  const localHour = now.getUTCHours() - 3; // Ajuste o -3 se seu fuso for diferente
+
+  const hour = (localHour + 24) % 24; // Garante que fique entre 0 e 23
+
+  if (hour >= 5 && hour < 12) {
+    return "Bom dia";
+  } else if (hour >= 12 && hour < 18) {
+    return "Boa tarde";
+  } else {
+    return "Boa noite";
+  }
+}, []);
+
 
   // Memoize task completion text
   const taskCompletionText = useMemo(() => {
