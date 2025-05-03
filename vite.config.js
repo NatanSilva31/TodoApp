@@ -8,7 +8,7 @@ import workbox from "./workbox.config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/TodoApp/", // <- necessário para funcionar no GitHub Pages
+  base: "/", 
   test: {
     globals: true,
   },
