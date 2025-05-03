@@ -8,7 +8,7 @@ import workbox from "./workbox.config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/", 
+  base: "/TodoApp/", 
   test: {
     globals: true,
   },

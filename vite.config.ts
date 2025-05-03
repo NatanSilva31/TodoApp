@@ -8,7 +8,7 @@ import workbox from "./workbox.config";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "/TodoApp/",
   test: {
     globals: true,
   },
@@ -16,7 +16,7 @@ export default defineConfig({
     react(),
     // Generate QR code for npm run dev:host
     qrcode({ filter: (url) => url.startsWith("http://192.168.0.") }),
-    // https://vite-pwa-org.netlify.app/
+    // https:/ /vite-pwa-org.netlify.app/
     VitePWA({
       manifest, // manifest.ts
       devOptions: {
