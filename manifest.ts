@@ -4,8 +4,8 @@ const manifest: Partial<ManifestOptions> = {
   name: "Todo App",
   short_name: "Todo App",
   display: "standalone",
-  scope: "/",
-  start_url: "/",
+  scope: "/TodoApp/",
+  start_url: "/TodoApp/",
   theme_color: "#7764E8",
   background_color: "#171D34",
   description:
@@ -16,7 +16,7 @@ const manifest: Partial<ManifestOptions> = {
   },
   file_handlers: [
     {
-      action: "/transfer",
+      action: "transfer", // sem barra inicial
       accept: {
         "application/json": [".json"],
       },
@@ -24,22 +24,22 @@ const manifest: Partial<ManifestOptions> = {
   ],
   icons: [
     {
-      src: "/logo192.png",
+      src: "logo192.png", // sem barra
       sizes: "192x192",
       type: "image/png",
     },
     {
-      src: "/logo256.png",
+      src: "logo256.png",
       sizes: "256x256",
       type: "image/png",
     },
     {
-      src: "/logo384.png",
+      src: "logo384.png",
       sizes: "384x384",
       type: "image/png",
     },
     {
-      src: "/logo512.png",
+      src: "logo512.png",
       sizes: "512x512",
       type: "image/png",
       purpose: "any",
@@ -55,7 +55,7 @@ const manifest: Partial<ManifestOptions> = {
     {
       name: "Add Task",
       description: "Add Task",
-      url: "/add",
+      url: "add",
       icons: [
         {
           src: "pwa/add.png",
@@ -67,7 +67,7 @@ const manifest: Partial<ManifestOptions> = {
     {
       name: "Categories",
       description: "Task Categories",
-      url: "/categories",
+      url: "categories",
       icons: [
         {
           src: "pwa/categories.png",
@@ -79,7 +79,7 @@ const manifest: Partial<ManifestOptions> = {
     {
       name: "Transfer",
       description: "Import or Export Task",
-      url: "/transfer",
+      url: "transfer",
       icons: [
         {
           src: "pwa/transfer.png",
@@ -88,22 +88,10 @@ const manifest: Partial<ManifestOptions> = {
         },
       ],
     },
-    // {
-    //   name: "Purge",
-    //   description: "Purge Tasks",
-    //   url: "/purge",
-    //   icons: [
-    //     {
-    //       src: "pwa/purge.png",
-    //       sizes: "192x192",
-    //       type: "image/png",
-    //     },
-    //   ],
-    // },
     {
       name: "Profile",
       description: "User Profile",
-      url: "/user",
+      url: "user",
       icons: [
         {
           src: "pwa/profile.png",
@@ -136,4 +124,5 @@ const manifest: Partial<ManifestOptions> = {
     },
   ],
 };
+
 export default manifest;
