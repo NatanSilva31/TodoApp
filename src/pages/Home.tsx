@@ -143,7 +143,7 @@ const timeGreeting = useMemo(() => {
             <TaskCountTextContainer>
               <TaskCountHeader>
                 {taskStats.completedTasksCount === 0
-                  ? `You have ${tasks.length} task${tasks.length > 1 ? "s" : ""} to complete.`
+                  ? `Você tem ${tasks.length} tarefa${tasks.length > 1 ? "s" : ""} para concluir.`
                   : `You've completed ${taskStats.completedTasksCount} out of ${tasks.length} tasks.`}
               </TaskCountHeader>
               <TaskCompletionText>{taskCompletionText}</TaskCompletionText>
