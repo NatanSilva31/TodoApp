@@ -357,7 +357,7 @@ const generateHTMLContent = ({ width, height, mode, orientation }) => {
       </head>
       <body>
         <div class="container">
-          <img src="https://raw.githubusercontent.com/natansilva31/TodoApp/refs/heads/main/public/logo.svg" class="logo" alt="App Logo" />
+          <img src="https://raw.githubusercontent.com/maciekt07/TodoApp/refs/heads/main/public/logo.svg" class="logo" alt="App Logo" />
           <div class="app-name">
             <span class="todo">Todo</span>
             <span class="app">&nbsp;App</span>
