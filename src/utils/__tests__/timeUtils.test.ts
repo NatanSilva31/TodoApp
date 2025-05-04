@@ -1,68 +1,69 @@
 import { timeAgo, formatDate, calculateDateDifference } from "../timeUtils";
 
-describe("Date Utility Functions", () => {
+describe("Funções utilitárias de data", () => {
   beforeEach(() => {
-    // Mock navigator.language
-    vi.stubGlobal("navigator", { language: "en-US" });
+    // Mock do idioma do navegador
+    vi.stubGlobal("navigator", { language: "pt-BR" });
   });
 
   describe("timeAgo", () => {
-    it('should return "now" for recent dates', () => {
+    it('deve retornar "agora" para datas recentes', () => {
       const now = new Date();
-      expect(timeAgo(now)).toBe("now");
+      expect(timeAgo(now)).toBe("agora");
     });
 
-    it('should return "2 days ago" for a date 2 days in the past', () => {
+    it('deve retornar "há 2 dias" para uma data de 2 dias atrás', () => {
       const twoDaysAgo = new Date(Date.now() - 2 * 24 * 60 * 60 * 1000);
-      expect(timeAgo(twoDaysAgo)).toBe("2 days ago");
+      expect(timeAgo(twoDaysAgo)).toBe("há 2 dias");
     });
   });
 
   describe("formatDate", () => {
-    it('should return "today" for today\'s date', () => {
+    it('deve retornar "hoje" para a data de hoje', () => {
       const today = new Date();
-      expect(formatDate(today)).toMatch(/^today \d{1,2}:\d{2} (AM|PM)$/);
+      expect(formatDate(today)).toMatch(/^hoje \d{1,2}:\d{2} (AM|PM)$/);
     });
 
-    it('should return "yesterday" for yesterday\'s date', () => {
+    it('deve retornar "ontem" para a data de ontem', () => {
       const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000);
-      expect(formatDate(yesterday)).toMatch(/^yesterday \d{1,2}:\d{2} (AM|PM)$/);
+      expect(formatDate(yesterday)).toMatch(/^ontem \d{1,2}:\d{2} (AM|PM)$/);
     });
   });
 
   describe("calculateDateDifference", () => {
-    it('should return the day of the week and "in 2 days" for a date 2 days in the future', () => {
+    it('deve retornar o dia da semana e "em 2 dias" para uma data futura em 2 dias', () => {
       const twoDaysLater = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000);
       const result = calculateDateDifference(twoDaysLater);
-      expect(result).toMatch(/^[A-Z][a-z]+ \(in 2 days\)$/);
+      expect(result).toMatch(/^[A-ZÁÉÍÓÚÂÊÎÔÛÃÕÇ][a-záéíóúâêîôûãõç]+ \(em 2 dias\)$/);
     });
 
-    it('should return "Not completed on time" for a past date', () => {
+    it('deve retornar "Não concluído no prazo" para uma data no passado', () => {
       const pastDate = new Date(Date.now() - 24 * 60 * 60 * 1000);
-      expect(calculateDateDifference(pastDate)).toMatch(/^Not completed on time/);
+      expect(calculateDateDifference(pastDate)).toMatch(/^Não concluído no prazo/);
     });
   });
 });
-describe("with Polish locale", () => {
+
+describe("com localidade em polonês", () => {
   beforeEach(() => {
-    // Mock navigator.language
+    // Mock do idioma do navegador
     vi.stubGlobal("navigator", { language: "pl-PL" });
   });
 
   describe("timeAgo", () => {
-    it('should return "teraz" for recent dates', () => {
+    it('deve retornar "teraz" para datas recentes', () => {
       const now = new Date();
       expect(timeAgo(now)).toBe("teraz");
     });
   });
 
   describe("formatDate", () => {
-    it('should return "dzisiaj" for today\'s date', () => {
+    it('deve retornar "dzisiaj" para a data de hoje', () => {
       const today = new Date();
       expect(formatDate(today)).toMatch(/^dzisiaj \d{1,2}:\d{2}$/);
     });
 
-    it('should return "wczoraj" for yesterday\'s date', () => {
+    it('deve retornar "wczoraj" para a data de ontem', () => {
       const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000);
       expect(formatDate(yesterday)).toMatch(/^wczoraj \d{1,2}:\d{2}$/);
     });

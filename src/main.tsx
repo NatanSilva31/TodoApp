@@ -1,6 +1,7 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { initColors } from "ntc-ts";
 import { ORIGINAL_COLORS } from "ntc-ts";
 import { UserContextProvider } from "./contexts/UserProvider.tsx";
@@ -14,7 +15,6 @@ import toast from "react-hot-toast";
 initColors(ORIGINAL_COLORS);
 
 const offlinePreparationCount = parseInt(
-  // prevent toast from showing infinitely on older versions of the app
   localStorage.getItem("offlinePreparationCount") || "0",
   10,
 );
@@ -30,7 +30,6 @@ if (offlinePreparationCount < 3 && !localStorage.getItem("initialCachingComplete
   localStorage.setItem("offlinePreparationCount", (offlinePreparationCount + 1).toString());
 }
 
-// Show a prompt to update the app when a new version is available
 registerSW({
   onRegistered(r) {
     if (r) {
@@ -47,15 +46,16 @@ registerSW({
   },
 });
 
-// Listen for the `SKIP_WAITING` message and reload the page when the new SW takes over
 navigator.serviceWorker?.addEventListener("controllerchange", () => {
   window.location.reload();
 });
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <BrowserRouter>
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
     <UserContextProvider>
-      <App />
+      <HashRouter> 
+        <App />
+      </HashRouter>
     </UserContextProvider>
-  </BrowserRouter>,
+  </React.StrictMode>,
 );

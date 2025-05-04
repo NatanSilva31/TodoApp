@@ -80,17 +80,17 @@ const timeGreeting = useMemo(() => {
     const percentage = taskStats.completedTaskPercentage;
     switch (true) {
       case percentage === 0:
-        return "No tasks completed yet. Keep going!";
+        return "Nenhuma tarefa concluída ainda. Continue!";
       case percentage === 100:
-        return "Congratulations! All tasks completed!";
+        return "Parabéns! Todas as tarefas concluídas!";
       case percentage >= 75:
-        return "Almost there!";
+        return "Quase lá!";
       case percentage >= 50:
-        return "You're halfway there! Keep it up!";
+        return "Você está no meio do caminho! Continue assim!";
       case percentage >= 25:
-        return "You're making good progress.";
+        return "Você está fazendo um bom progresso.";
       default:
-        return "You're just getting started.";
+        return "Você está apenas começando.";
     }
   }, [taskStats.completedTaskPercentage]);
 
@@ -113,7 +113,7 @@ const timeGreeting = useMemo(() => {
 
       {!isOnline && (
         <Offline>
-          <WifiOff /> You're offline but you can use the app!
+          <WifiOff /> Você está offline, mas pode usar o aplicativo!
         </Offline>
       )}
       {tasks.length > 0 && (
@@ -144,7 +144,7 @@ const timeGreeting = useMemo(() => {
               <TaskCountHeader>
                 {taskStats.completedTasksCount === 0
                   ? `Você tem ${tasks.length} tarefa${tasks.length > 1 ? "s" : ""} para concluir.`
-                  : `You've completed ${taskStats.completedTasksCount} out of ${tasks.length} tasks.`}
+                  : `Você concluiu ${taskStats.completedTasksCount} de ${tasks.length} tarefas.`}
               </TaskCountHeader>
               <TaskCompletionText>{taskCompletionText}</TaskCompletionText>
               {taskStats.tasksWithDeadlineTodayCount > 0 && (

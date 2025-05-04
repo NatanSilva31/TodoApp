@@ -270,7 +270,7 @@ export const TasksList: React.FC = () => {
 
         showToast(
           <div translate="no" style={{ wordBreak: "break-word" }}>
-            <b translate="yes">Overdue task{overdueTasks.length > 1 && "s"}: </b>
+            <b translate="yes">Tarefa atrasada{overdueTasks.length > 1 && "s"}: </b>
             {listFormat.format(taskNames)}
           </div>,
           {
