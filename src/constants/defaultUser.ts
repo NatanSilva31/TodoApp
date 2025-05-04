@@ -25,23 +25,23 @@ export const defaultUser: User = {
     voiceVolume: 0.6,
   },
   categories: [
-    { id: "857f0db6-43b2-43eb-8143-ec4e26472516", name: "Home", emoji: "1f3e0", color: "#1fff44" },
-    { id: "0292cba5-f6e2-41c4-b5a7-c59a0aaecfe3", name: "Work", emoji: "1f3e2", color: "#248eff" },
+    { id: "857f0db6-43b2-43eb-8143-ec4e26472516", name: "Casa", emoji: "1f3e0", color: "#1fff44" },
+    { id: "0292cba5-f6e2-41c4-b5a7-c59a0aaecfe3", name: "Trabalho", emoji: "1f3e2", color: "#248eff" },
     {
       id: "a47a4af1-d720-41eb-9121-d3728605a62b",
-      name: "Personal",
+      name: "Pessoal",
       emoji: "1f464",
       color: "#e843fe",
     },
     {
       id: "393068a9-9db7-4dfa-a00f-cd359f8024e8",
-      name: "Health/Fitness",
+      name: "Saúde/Fitness",
       emoji: "1f4aa",
       color: "#ffdf3d",
     },
     {
       id: "afa0fdb4-f668-4d5a-9ad0-4e22d2b8e841",
-      name: "Education",
+      name: "Educação",
       emoji: "1f4da",
       color: "#ff8e24",
     },

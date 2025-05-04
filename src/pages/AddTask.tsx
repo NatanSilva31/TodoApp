@@ -128,7 +128,7 @@ const AddTask = () => {
 
   return (
     <>
-      <TopBar title="Add New Task" />
+      <TopBar title="Adicionar nova tarefa" />
       <Container>
         <CustomEmojiPicker
           emoji={typeof emoji === "string" ? emoji : undefined}
@@ -140,9 +140,9 @@ const AddTask = () => {
         {/* fix for input colors */}
         <InputThemeProvider>
           <StyledInput
-            label="Task Name"
+            label="Nome da tarefa"
             name="name"
-            placeholder="Enter task name"
+            placeholder="Insira o nome da tarefa"
             autoComplete="off"
             value={name}
             onChange={handleNameChange}
@@ -158,9 +158,9 @@ const AddTask = () => {
             }
           />
           <StyledInput
-            label="Task Description"
+            label="Descrição da tarefa"
             name="name"
-            placeholder="Enter task description"
+            placeholder="Insira a descrição da tarefa"
             autoComplete="off"
             value={description}
             onChange={handleDescriptionChange}
@@ -177,9 +177,9 @@ const AddTask = () => {
             }
           />
           <StyledInput
-            label="Task Deadline"
+            label="Prazo da tarefa"
             name="name"
-            placeholder="Enter deadline date"
+            placeholder="Insira o prazo da tarefa"
             type="datetime-local"
             value={deadline}
             onChange={handleDeadlineChange}

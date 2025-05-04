@@ -81,9 +81,9 @@ export const TaskMenu = () => {
       if (allTasksDone) {
         showToast(
           <div>
-            <b>All tasks done</b>
+            <b>Todas as tarefas realizadas</b>
             <br />
-            <span>You've checked off all your todos. Well done!</span>
+            <span>Você concluiu todas as tarefas. Muito bem!</span>
           </div>,
           {
             icon: (
@@ -257,21 +257,21 @@ export const TaskMenu = () => {
     <div>
       <StyledMenuItem onClick={handleMarkAsDone}>
         {selectedTask.done ? <Close /> : <Done />}
-        &nbsp; {selectedTask.done ? "Mark as not done" : "Mark as done"}
+        &nbsp; {selectedTask.done ? "Marcar como não concluído" : "Marcar como concluído"}
       </StyledMenuItem>
       <StyledMenuItem onClick={handlePin}>
         <PushPinRounded sx={{ textDecoration: "line-through" }} />
-        &nbsp; {selectedTask.pinned ? "Unpin" : "Pin"}
+        &nbsp; {selectedTask.pinned ? "Desafixar" : "Fixar"}
       </StyledMenuItem>
 
       {multipleSelectedTasks.length === 0 && (
         <StyledMenuItem onClick={() => handleSelectTask(selectedTaskId || generateUUID())}>
-          <RadioButtonChecked /> &nbsp; Select
+          <RadioButtonChecked /> &nbsp; Selecionar
         </StyledMenuItem>
       )}
 
       <StyledMenuItem onClick={redirectToTaskDetails}>
-        <LaunchRounded /> &nbsp; Task details
+        <LaunchRounded /> &nbsp; Detalhes da tarefa
       </StyledMenuItem>
 
       {settings.enableReadAloud && "speechSynthesis" in window && (
@@ -282,7 +282,7 @@ export const TaskMenu = () => {
             (window.speechSynthesis.speaking || window.speechSynthesis.pending)
           }
         >
-          <RecordVoiceOverRounded /> &nbsp; Read Aloud
+          <RecordVoiceOverRounded /> &nbsp; Leia em voz alta
         </StyledMenuItem>
       )}
 
@@ -292,7 +292,7 @@ export const TaskMenu = () => {
           handleCloseMoreMenu();
         }}
       >
-        <LinkRounded /> &nbsp; Share
+        <LinkRounded /> &nbsp; Compartilhar
       </StyledMenuItem>
 
       <Divider />
@@ -302,10 +302,10 @@ export const TaskMenu = () => {
           handleCloseMoreMenu();
         }}
       >
-        <EditRounded /> &nbsp; Edit
+        <EditRounded /> &nbsp; Editar
       </StyledMenuItem>
       <StyledMenuItem onClick={handleDuplicateTask}>
-        <ContentCopy /> &nbsp; Duplicate
+        <ContentCopy /> &nbsp; Duplicar
       </StyledMenuItem>
       <Divider />
       <StyledMenuItem
@@ -315,7 +315,7 @@ export const TaskMenu = () => {
           handleCloseMoreMenu();
         }}
       >
-        <DeleteRounded /> &nbsp; Delete
+        <DeleteRounded /> &nbsp; Apagar
       </StyledMenuItem>
     </div>
   );

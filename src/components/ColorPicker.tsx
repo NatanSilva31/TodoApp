@@ -125,12 +125,12 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
     setUser({ ...user, colorList: [...colorList, addColorVal.toUpperCase()] });
     showToast(
       <div>
-        Added{" "}
+        Adicionado{" "}
         <b>
           <ToastColorPreview clr={addColorVal} />
           {getColorName(addColorVal).name}
         </b>{" "}
-        to your color list.
+        à sua lista de cores.
       </div>,
       ToastColorOptions(addColorVal),
     );
@@ -141,12 +141,12 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
     setPopoverOpen(Array(colorList.length).fill(false));
     showToast(
       <div>
-        Removed{" "}
+        Removido{" "}
         <b>
           <ToastColorPreview clr={clr} />
           {getColorName(clr).name}
         </b>{" "}
-        from your color list.
+        da sua lista de cores.
       </div>,
       ToastColorOptions(clr),
     );
@@ -239,13 +239,13 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                   >
                     <div>
                       <DeleteColorBtn onClick={() => handleDeleteColor(color)}>
-                        Delete
+                        Excluir
                       </DeleteColorBtn>
                     </div>
                   </Popover>
                 </Grid>
               ))}
-              <Tooltip title="Add new color">
+              <Tooltip title="Adicionar nova cor">
                 <Grid>
                   <ColorElement
                     clr="transparent"
@@ -260,15 +260,14 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
           </Grid>
           <StyledInfo clr={fontColor || ColorPalette.fontLight}>
             <InfoRounded fontSize="small" />{" "}
-            {window.matchMedia("(pointer:fine)").matches ? "Right click" : "Double tap"} to remove
-            color from list
+            {window.matchMedia("(pointer:fine)").matches ? "Clique com o botão direito" : "Toque duas vezes"} para remover da lista de cores
           </StyledInfo>
         </AccordionDetails>
       </StyledAccordion>
       <Dialog open={openAddDialog} onClose={handleAddDialogClose}>
         <CustomDialogTitle
-          title="Choose a color"
-          subTitle="Add a new color to the color list."
+          title="Escolha uma cor"
+          subTitle="Adicione uma nova cor à lista de cores."
           icon={<ColorLensRounded />}
           onClose={handleAddDialogClose}
         />
@@ -290,22 +289,22 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
               ))}
             </datalist> */}
             <PickerLabel clr={getFontColor(addColorVal)}>
-              <ColorizeRounded /> Choose color
+              <ColorizeRounded /> Escolher a cor
             </PickerLabel>
           </div>
         </DialogContent>
         <DialogActions>
-          <DialogBtn onClick={handleAddDialogClose}>Cancel</DialogBtn>
+          <DialogBtn onClick={handleAddDialogClose}>Cancelar</DialogBtn>
           <DialogBtn
             onClick={() => {
               onColorChange(addColorVal);
               handleAddDialogClose();
             }}
           >
-            <ColorizeRounded /> &nbsp; Set
+            <ColorizeRounded /> &nbsp; Aplicar
           </DialogBtn>
           <DialogBtn onClick={handleAddColor}>
-            <AddRounded /> &nbsp; Add
+            <AddRounded /> &nbsp; Adicionar
           </DialogBtn>
         </DialogActions>
       </Dialog>

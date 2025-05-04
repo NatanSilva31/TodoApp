@@ -39,10 +39,10 @@ const TaskDetails = () => {
 
   return (
     <>
-      <TopBar title="Task Details" />
+      <TopBar title="Detalhes da tarefa" />
       <Container>
         <TaskName>
-          Task: <span translate="no">{task.name}</span>
+          Tarefa: <span translate="no">{task.name}</span>
         </TaskName>
         <TaskTable>
           <tbody>
@@ -55,7 +55,7 @@ const TaskDetails = () => {
                     {task.emoji})
                   </>
                 ) : (
-                  <i>none</i>
+                  <i>nenhum</i>
                 )}
               </TableData>
             </TableRow>
@@ -64,53 +64,53 @@ const TaskDetails = () => {
               <TableData>{task?.id}</TableData>
             </TableRow>
             <TableRow>
-              <TableHeader>Description:</TableHeader>
+              <TableHeader>Descrição:</TableHeader>
               <TableData translate="no">{task?.description}</TableData>
             </TableRow>
             <TableRow>
-              <TableHeader>Color:</TableHeader>
+              <TableHeader>Cor:</TableHeader>
               <TableData>
                 <ColorSquare clr={task.color} />
                 {getColorName(task.color).name} ({task.color.toUpperCase()})
               </TableData>
             </TableRow>
             <TableRow>
-              <TableHeader>Created:</TableHeader>
+              <TableHeader>Criado:</TableHeader>
               <TableData>{dateFormatter.format(new Date(task.date))}</TableData>
             </TableRow>
             {task?.lastSave && (
               <TableRow>
-                <TableHeader>Last edited:</TableHeader>
+                <TableHeader>Última edição:</TableHeader>
                 <TableData>{dateFormatter.format(new Date(task.lastSave))}</TableData>
               </TableRow>
             )}
             {task?.deadline && (
               <TableRow>
-                <TableHeader>Task deadline:</TableHeader>
+                <TableHeader>Prazo da tarefa:</TableHeader>
                 <TableData>{dateFormatter.format(new Date(task.deadline))}</TableData>
               </TableRow>
             )}
             <TableRow>
-              <TableHeader>Done:</TableHeader>
+              <TableHeader>Terminado:</TableHeader>
               <TableData>
                 {task?.done ? <Done /> : <Clear />} {task?.done.toString()}
               </TableData>
             </TableRow>
             <TableRow>
-              <TableHeader>Pinned:</TableHeader>
+              <TableHeader>Fixado:</TableHeader>
               <TableData>
                 {task?.pinned ? <Done /> : <Clear />} {task?.pinned.toString()}
               </TableData>
             </TableRow>
             {task?.sharedBy && (
               <TableRow>
-                <TableHeader>Shared by: </TableHeader>
+                <TableHeader>Compartilhado por: </TableHeader>
                 <TableData>{task.sharedBy}</TableData>
               </TableRow>
             )}
             {task.category && task.category.length > 0 && (
               <TableRow>
-                <TableHeader>Categories:</TableHeader>
+                <TableHeader>Categorias:</TableHeader>
                 <TableData>
                   <CategoryContainer>
                     {task?.category?.map((category) => (

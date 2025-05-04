@@ -302,7 +302,7 @@ export const TasksList: React.FC = () => {
           <SearchInput
             focused
             color="primary"
-            placeholder="Search for task..."
+            placeholder="Pesquisar por tarefa..."
             autoComplete="off"
             value={search}
             onChange={(e) => {
@@ -383,7 +383,7 @@ export const TasksList: React.FC = () => {
           <SelectedTasksContainer>
             <div>
               <h3>
-                <RadioButtonChecked /> &nbsp; Selected {multipleSelectedTasks.length} task
+                <RadioButtonChecked /> &nbsp; Selecionado {multipleSelectedTasks.length} tarefa
                 {multipleSelectedTasks.length > 1 ? "s" : ""}
               </h3>
               <span translate="no" style={{ fontSize: "14px", opacity: 0.8 }}>
@@ -396,7 +396,7 @@ export const TasksList: React.FC = () => {
             </div>
             {/* TODO: add more features */}
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Tooltip title="Mark selected as done">
+              <Tooltip title="Marcar selecionado como concluído">
                 <IconButton
                   sx={{ color: getFontColor(theme.secondary) }}
                   size="large"
@@ -405,12 +405,12 @@ export const TasksList: React.FC = () => {
                   <DoneAll />
                 </IconButton>
               </Tooltip>
-              <Tooltip title="Delete selected">
+              <Tooltip title="Excluir selecionado">
                 <IconButton color="error" size="large" onClick={handleDeleteSelected}>
                   <Delete />
                 </IconButton>
               </Tooltip>
-              <Tooltip sx={{ color: getFontColor(theme.secondary) }} title="Cancel">
+              <Tooltip sx={{ color: getFontColor(theme.secondary) }} title="Cancelar">
                 <IconButton size="large" onClick={() => setMultipleSelectedTasks([])}>
                   <CancelRounded />
                 </IconButton>
@@ -428,7 +428,7 @@ export const TasksList: React.FC = () => {
             }}
           >
             <b>
-              Found {orderedTasks.length} task
+              Encontrado {orderedTasks.length} tarefa
               {orderedTasks.length > 1 ? "s" : ""}
             </b>
           </div>
@@ -462,16 +462,16 @@ export const TasksList: React.FC = () => {
           ))
         ) : (
           <NoTasks>
-            <span>You don't have any tasks yet</span>
+            <span>Você ainda não tem nenhuma tarefa</span>
             <br />
-            Click on the <span>+</span> button to add one
+            Clique no ícone <span>+</span> para adicionar uma
           </NoTasks>
         )}
         {search && orderedTasks.length === 0 && user.tasks.length > 0 ? (
           <TaskNotFound>
-            <b>No tasks found</b>
+            <b>Nenhuma tarefa encontrada</b>
             <br />
-            Try searching with different keywords.
+            Tente pesquisar com palavras-chave diferentes.
             <div style={{ marginTop: "14px" }}>
               <TaskIcon scale={0.8} />
             </div>
@@ -485,8 +485,8 @@ export const TasksList: React.FC = () => {
       </TasksContainer>
       <Dialog open={deleteDialogOpen} onClose={cancelDeleteTask}>
         <CustomDialogTitle
-          title="Delete Task"
-          subTitle="Are you sure you want to delete this task?"
+          title="Excluir tarefa"
+          subTitle="Tem certeza de que deseja excluir esta tarefa?"
           onClose={cancelDeleteTask}
           icon={<Delete />}
         />
@@ -502,17 +502,17 @@ export const TasksList: React.FC = () => {
         </DialogContent>
         <DialogActions>
           <DialogBtn onClick={cancelDeleteTask} color="primary">
-            Cancel
+            Cancelar
           </DialogBtn>
           <DialogBtn onClick={confirmDeleteTask} color="error">
-            <DeleteRounded /> &nbsp; Confirm Delete
+            <DeleteRounded /> &nbsp; Confirmar exclusão
           </DialogBtn>
         </DialogActions>
       </Dialog>
       <Dialog open={deleteSelectedOpen}>
         <CustomDialogTitle
-          title="Delete selected tasks"
-          subTitle="Confirm to delete selected tasks"
+          title="Excluir tarefas selecionadas"
+          subTitle="Confirme para excluir as tarefas selecionadas"
           icon={<DeleteRounded />}
         />
         <DialogContent translate="no">
@@ -524,7 +524,7 @@ export const TasksList: React.FC = () => {
         </DialogContent>
         <DialogActions>
           <DialogBtn onClick={() => setDeleteSelectedOpen(false)} color="primary">
-            Cancel
+            Cancelar
           </DialogBtn>
           <DialogBtn
             onClick={() => {
@@ -538,7 +538,7 @@ export const TasksList: React.FC = () => {
             }}
             color="error"
           >
-            Delete
+            Excluir
           </DialogBtn>
         </DialogActions>
       </Dialog>

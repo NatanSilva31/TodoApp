@@ -242,7 +242,7 @@ export const ProfileSidebar = () => {
 
         <MenuLink to="/">
           <StyledMenuItem onClick={handleClose}>
-            <TaskAltRounded /> &nbsp; Tasks
+            <TaskAltRounded /> &nbsp; Tarefas
             {tasks.filter((task) => !task.done).length > 0 && (
               <Tooltip title={`${tasks.filter((task) => !task.done).length} tasks to do`}>
                 <MenuLabel>
@@ -257,27 +257,27 @@ export const ProfileSidebar = () => {
 
         <MenuLink to="/add">
           <StyledMenuItem onClick={handleClose}>
-            <AddRounded /> &nbsp; Add Task
+            <AddRounded /> &nbsp; Adicionar tarefa
           </StyledMenuItem>
         </MenuLink>
 
         {settings.enableCategories !== undefined && settings.enableCategories && (
           <MenuLink to="/categories">
             <StyledMenuItem onClick={handleClose}>
-              <CategoryRounded /> &nbsp; Categories
+              <CategoryRounded /> &nbsp; Categorias
             </StyledMenuItem>
           </MenuLink>
         )}
 
         <MenuLink to="/purge">
           <StyledMenuItem onClick={handleClose}>
-            <DeleteForeverRounded /> &nbsp; Purge Tasks
+            <DeleteForeverRounded /> &nbsp; Tarefas de Exclusão
           </StyledMenuItem>
         </MenuLink>
 
         <MenuLink to="/transfer">
           <StyledMenuItem onClick={handleClose}>
-            <GetAppRounded /> &nbsp; Transfer
+            <GetAppRounded /> &nbsp; Baixar
           </StyledMenuItem>
         </MenuLink>
 
@@ -301,9 +301,9 @@ export const ProfileSidebar = () => {
 
         <MenuLink to="https://github.com/natansilva31/TodoApp/issues/new">
           <StyledMenuItem>
-            <BugReportRounded className="BugReportRoundedIcon" /> &nbsp; Report Issue{" "}
+            <BugReportRounded className="BugReportRoundedIcon" /> &nbsp; Reportar problema{" "}
             {Boolean(issuesCount || issuesCount === 0) && (
-              <Tooltip title={`${issuesCount} open issues`}>
+              <Tooltip title={`${issuesCount} questões em aberto`}>
                 <MenuLabel clr="#3bb61c">
                   <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <AdjustRounded style={{ fontSize: "18px" }} />
@@ -316,10 +316,10 @@ export const ProfileSidebar = () => {
           </StyledMenuItem>
         </MenuLink>
 
-        <MenuLink to="https://www.buymeacoffee.com/natansilva31">
+        <MenuLink to="https://buymeacoffee.com/natansilva31">
           <StyledMenuItem className="bmcMenu">
             <BmcIcon className="bmc-icon" src={theme.darkmode ? bmcLogoLight : bmcLogo} /> &nbsp;
-            Buy me a coffee{" "}
+            Compre-me um café{" "}
             {bmcSupporters && (
               <Tooltip title={`${bmcSupporters} supporters on Buy me a coffee`}>
                 <MenuLabel clr="#f93c58">
@@ -342,7 +342,7 @@ export const ProfileSidebar = () => {
             ) : (
               <InstallDesktopRounded className="InstallDesktopRoundedIcon" />
             )}
-            &nbsp; Install App
+            &nbsp; Instalar aplicativo
           </StyledMenuItem>
         )}
 
@@ -353,9 +353,9 @@ export const ProfileSidebar = () => {
               onClick={() => {
                 showToast(
                   <div style={{ display: "inline-block" }}>
-                    To install the app on iOS Safari, click on{" "}
-                    <IosShareRounded sx={{ verticalAlign: "middle", mb: "4px" }} /> and then{" "}
-                    <span style={{ fontWeight: "bold" }}>Add to Home Screen</span>.
+                    Para instalar o aplicativo no iOS Safari, clique em{" "}
+                    <IosShareRounded sx={{ verticalAlign: "middle", mb: "4px" }} /> e depois{" "}
+                    <span style={{ fontWeight: "bold" }}>Adicionar à tela inicial</span>.
                   </div>,
                   { type: "blank", duration: 8000 },
                 );
@@ -363,7 +363,7 @@ export const ProfileSidebar = () => {
               }}
             >
               <PhoneIphoneRounded />
-              &nbsp; Install App
+              &nbsp; Instalar aplicativo
             </StyledMenuItem>
           )}
 
@@ -374,7 +374,7 @@ export const ProfileSidebar = () => {
           }}
           sx={{ color: "#ff4040 !important" }}
         >
-          <Logout className="LogoutIcon" /> &nbsp; Logout
+          <Logout className="LogoutIcon" /> &nbsp; Sair
         </StyledMenuItem>
 
         <ProfileOptionsBottom>
@@ -384,7 +384,7 @@ export const ProfileSidebar = () => {
               handleClose();
             }}
           >
-            <SettingsRounded className="SettingsRoundedIcon" /> &nbsp; Settings
+            <SettingsRounded className="SettingsRoundedIcon" /> &nbsp; Configurações
             {JSON.stringify(settings) === JSON.stringify(defaultUser.settings) &&
               user.darkmode === defaultUser.darkmode &&
               user.theme === defaultUser.theme &&

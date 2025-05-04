@@ -37,7 +37,7 @@ const Purge = () => {
   const [deleteAllDialog, setDeleteAllDialog] = useState<boolean>(false);
 
   useEffect(() => {
-    document.title = "Todo App - Purge tasks";
+    document.title = "Todo App - Tarefas de limpeza";
   }, []);
 
   const doneTasks = tasks.filter((task) => task.done);
@@ -86,7 +86,7 @@ const Purge = () => {
 
   const handlePurgeDone = () => {
     purgeTasks(doneTasks);
-    showToast("Purged all done tasks.");
+    showToast("Limpou todas as tarefas realizadas.");
   };
 
   const handlePurgeAll = () => {
@@ -127,13 +127,13 @@ const Purge = () => {
 
   return (
     <>
-      <TopBar title="Purge Tasks" />
-      <ManagementHeader>Select Tasks To Purge</ManagementHeader>
+      <TopBar title="Tarefas de limpeza" />
+      <ManagementHeader>Selecionar tarefas a serem limpas</ManagementHeader>
       <ManagementContainer>
-        {doneTasks.length > 0 && renderTasks(doneTasks, "Done Tasks")}
-        {notDoneTasks.length > 0 && renderTasks(notDoneTasks, "Not Done Tasks")}
+        {doneTasks.length > 0 && renderTasks(doneTasks, "Tarefas concluídas")}
+        {notDoneTasks.length > 0 && renderTasks(notDoneTasks, "Tarefas não concluídas")}
         {tasks.length === 0 && (
-          <h3 style={{ opacity: 0.8, fontStyle: "italic" }}>You don't have any tasks to purge</h3>
+          <h3 style={{ opacity: 0.8, fontStyle: "italic" }}>Você não tem nenhuma tarefa para limpar</h3>
         )}
       </ManagementContainer>
       <ManagementButtonsContainer>
@@ -141,22 +141,22 @@ const Purge = () => {
           title={
             selectedTasks.length > 0 ? (
               <div>
-                <span>Selected Tasks: </span>
+                <span>Tarefas selecionadas: </span>
                 <span translate="no">{selectedNamesList}</span>
               </div>
             ) : undefined
           }
         >
           <ManagementButton onClick={handlePurgeSelected} disabled={selectedTasks.length === 0}>
-            <DeleteSweepRounded /> &nbsp; Purge Selected{" "}
+            <DeleteSweepRounded /> &nbsp; Limpar selecionado{" "}
             {selectedTasks.length > 0 && `[${selectedTasks.length}]`}
           </ManagementButton>
         </Tooltip>
         <ManagementButton onClick={handlePurgeDone} disabled={doneTasks.length === 0}>
-          <DoneAllRounded /> &nbsp; Purge Done
+          <DoneAllRounded /> &nbsp; Limpeza feita
         </ManagementButton>
         <ManagementButton color="error" onClick={handlePurgeAll} disabled={tasks.length === 0}>
-          <DeleteForeverRounded /> &nbsp; Purge All Tasks
+          <DeleteForeverRounded /> &nbsp; Limpar todas as tarefas
         </ManagementButton>
       </ManagementButtonsContainer>
       <Dialog open={deleteAllDialog} onClose={() => setDeleteAllDialog(false)}>
@@ -167,19 +167,19 @@ const Purge = () => {
           icon={<DeleteForeverRounded />}
         />
         <DialogContent>
-          This action cannot be undone. Are you sure you want to proceed?
+        Esta ação não pode ser desfeita. Tem certeza de que deseja prosseguir?
         </DialogContent>
         <DialogActions>
-          <DialogBtn onClick={() => setDeleteAllDialog(false)}>Cancel</DialogBtn>
+          <DialogBtn onClick={() => setDeleteAllDialog(false)}>Cancelar</DialogBtn>
           <DialogBtn
             color="error"
             onClick={() => {
               purgeTasks(tasks);
               setDeleteAllDialog(false);
-              showToast("Purged all tasks");
+              showToast("Limpeza efetuada");
             }}
           >
-            <DeleteForeverRounded /> &nbsp; Purge
+            <DeleteForeverRounded /> &nbsp; Limpar
           </DialogBtn>
         </DialogActions>
       </Dialog>

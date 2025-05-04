@@ -86,7 +86,7 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
           fontWeight: 500,
         }}
       >
-        Category
+        Categoria
       </FormLabel>
 
       <StyledSelect
@@ -125,7 +125,7 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
               ))}
             </Box>
           ) : (
-            <Box sx={{ color: fontColor }}>Select Categories</Box>
+            <Box sx={{ color: fontColor }}>Selecione Categorias</Box>
           )
         }
         MenuProps={{
@@ -177,7 +177,7 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
               <HeaderMenuItem key="header-info" disabled>
                 <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                   <b>
-                    Select Categories{" "}
+                    Selecione Categorias{" "}
                     <span
                       style={{
                         transition: ".3s color",
@@ -191,14 +191,14 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
                     </span>
                   </b>
                   <SelectedNames>
-                    Selected:{" "}
+                    Selecionado:{" "}
                     {selectedCats.length > 0 ? (
                       new Intl.ListFormat("en", {
                         style: "long",
                         type: "conjunction",
                       }).format(selectedCats.map((category) => category.name))
                     ) : (
-                      <span style={{ fontStyle: "italic" }}>none</span>
+                      <span style={{ fontStyle: "italic" }}>nenhum</span>
                     )}
                   </SelectedNames>
                 </div>
@@ -207,7 +207,7 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
                 favoriteCats,
                 <>
                   <StarRounded color="warning" sx={{ fontSize: "18px" }} />
-                  &nbsp;Favorite Categories
+                  &nbsp;Categorias favoritas
                 </>,
                 "header-favorites",
               ),
@@ -220,7 +220,7 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
                 <Divider sx={{ mb: "12px", mt: "16px" }} />
                 <Link to="/categories">
                   <Button fullWidth variant="outlined" sx={{ mb: "8px", mt: "2px" }}>
-                    <EditRounded /> &nbsp; Modify Categories
+                    <EditRounded /> &nbsp; Modificar categorias
                   </Button>
                 </Link>
               </div>,
@@ -228,10 +228,10 @@ export const CategorySelect: React.FC<CategorySelectProps> = ({
           } else {
             return [
               <NoCategories key="no-categories" disableTouchRipple>
-                <p>You don't have any categories</p>
+                <p>Você não tem nenhuma categoria</p>
                 <Link to="/categories" style={{ width: "100%" }}>
                   <Button fullWidth variant="outlined">
-                    <AddRounded /> &nbsp; Create Category
+                    <AddRounded /> &nbsp; Criar categoria
                   </Button>
                 </Link>
               </NoCategories>,

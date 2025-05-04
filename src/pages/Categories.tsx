@@ -325,10 +325,10 @@ const Categories = () => {
             })}
           </CategoryElementsContainer>
         ) : (
-          <p>You don't have any categories</p>
+          <p>Você não tem nenhuma categoria</p>
         )}
         <AddContainer>
-          <h2>Add New Category</h2>
+          <h2>Adicionar nova categoria</h2>
           <CustomEmojiPicker
             emoji={typeof emoji === "string" ? emoji : undefined}
             setEmoji={setEmoji}
@@ -339,8 +339,8 @@ const Categories = () => {
           <InputThemeProvider>
             <CategoryInput
               required
-              label="Category name"
-              placeholder="Enter category name"
+              label="Nome da categoria"
+              placeholder="Digite o nome da categoria"
               value={name}
               onChange={handleNameChange}
               error={nameError !== ""}
@@ -365,13 +365,13 @@ const Categories = () => {
             onClick={handleAddCategory}
             disabled={name.length > CATEGORY_NAME_MAX_LENGTH}
           >
-            Create Category
+            Criar Categoria
           </AddCategoryButton>
         </AddContainer>
         <Dialog open={openDeleteDialog} onClose={() => setOpenDeleteDialog(false)}>
           <CustomDialogTitle
-            title="Delete this category?"
-            subTitle="This action cannot be undone."
+            title="Excluir esta categoria?"
+            subTitle="Esta ação não pode ser desfeita."
             icon={<DeleteRounded />}
             onClose={() => setOpenDeleteDialog(false)}
           />
@@ -413,7 +413,7 @@ const Categories = () => {
               }}
               color="error"
             >
-              <DeleteRounded /> &nbsp; Delete
+              <DeleteRounded /> &nbsp; Excluir
             </DialogBtn>
           </DialogActions>
         </Dialog>
@@ -432,8 +432,8 @@ const Categories = () => {
           }}
         >
           <CustomDialogTitle
-            title="Edit Category"
-            subTitle={`Edit the details of the category.`}
+            title="Editar categoria"
+            subTitle={`Edite os detalhes da categoria.`}
             icon={<Edit />}
             onClose={handleEditDimiss}
           />
@@ -457,8 +457,8 @@ const Categories = () => {
               }}
             >
               <EditNameInput
-                label="Enter category name"
-                placeholder="Enter category name"
+                label="Insira o nome da categoria"
+                placeholder="Insira o nome da categoria"
                 value={editName}
                 error={editNameError !== "" || editName.length === 0}
                 onChange={handleEditNameChange}
@@ -466,7 +466,7 @@ const Categories = () => {
                   editNameError
                     ? editNameError
                     : editName.length === 0
-                      ? "Category name is required"
+                      ? "O nome da categoria é obrigatório"
                       : `${editName.length}/${CATEGORY_NAME_MAX_LENGTH}`
                 }
               />
@@ -481,12 +481,12 @@ const Categories = () => {
             </div>
           </DialogContent>
           <DialogActions>
-            <DialogBtn onClick={handleEditDimiss}>Cancel</DialogBtn>
+            <DialogBtn onClick={handleEditDimiss}>Cancelar</DialogBtn>
             <DialogBtn
               onClick={handleEditCategory}
               disabled={editNameError !== "" || editName.length === 0}
             >
-              <SaveRounded /> &nbsp; Save
+              <SaveRounded /> &nbsp; Salvar
             </DialogBtn>
           </DialogActions>
         </Dialog>

@@ -48,7 +48,7 @@ const UserProfile = () => {
   }, [profilePicture]);
 
   useEffect(() => {
-    document.title = `Todo App - User ${name ? `(${name})` : ""}`;
+    document.title = `Todo App - Usuário ${name ? `(${name})` : ""}`;
   }, [name]);
 
   const handleSaveName = () => {
@@ -79,7 +79,7 @@ const UserProfile = () => {
         ...prevUser,
         profilePicture: profilePictureURL,
       }));
-      showToast("Changed profile picture.");
+      showToast("Foto de perfil alterada.");
     }
   };
 
@@ -104,7 +104,7 @@ const UserProfile = () => {
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
-      showToast("Please upload an image file.");
+      showToast("Por favor, carregue um arquivo de imagem.");
       return;
     }
 
@@ -120,7 +120,7 @@ const UserProfile = () => {
       const maxSizeMB = maxFileSize / (1024 * 1024);
 
       showToast(
-        `File size is too large (${formatMB.format(fileSizeMB)}/${formatMB.format(maxSizeMB)})`,
+        `O tamanho do arquivo é muito grande (${formatMB.format(fileSizeMB)}/${formatMB.format(maxSizeMB)})`,
         { type: "error" },
       );
       return;
@@ -153,16 +153,16 @@ const UserProfile = () => {
           }));
 
           handleCloseImageDialog();
-          showToast(`Profile picture updated successfully.`);
+          showToast(`Foto do perfil atualizada com sucesso.`);
         };
 
         putRequest.onerror = () => {
-          showToast("Failed to save profile picture.");
+          showToast("Falha ao salvar a foto do perfil.");
         };
       };
     } catch (error) {
-      console.error("Error uploading file:", error);
-      showToast("Failed to upload profile picture.");
+      console.error("Erro ao carregar o arquivo:", error);
+      showToast("Falha ao carregar a foto do perfil.");
     }
   };
 
@@ -183,16 +183,16 @@ const UserProfile = () => {
       };
 
       deleteRequest.onerror = () => {
-        showToast("Failed to delete profile picture.");
+        showToast("Falha ao excluir a foto do perfil.");
       };
     };
   };
 
   return (
     <>
-      <TopBar title="User Profile" />
+      <TopBar title="Perfil do usuário" />
       <Container>
-        <Tooltip title="App Settings">
+        <Tooltip title="Configurações do aplicativo">
           <IconButton
             onClick={() => (window.location.hash = `#settings/Appearance`)}
             aria-label="Settings"
@@ -206,7 +206,7 @@ const UserProfile = () => {
             <Settings fontSize="large" />
           </IconButton>
         </Tooltip>
-        <Tooltip title={profilePicture ? "Change profile picture" : "Add profile picture"}>
+        <Tooltip title={profilePicture ? "Alterar foto do perfil" : "Adicionar foto de perfil"}>
           <Badge
             overlap="circular"
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
@@ -243,24 +243,24 @@ const UserProfile = () => {
         >
           <CreatedAtDate>
             <TodayRounded fontSize="small" />
-            &nbsp;Registered {timeAgo(createdAt)}
+            &nbsp;Registrado {timeAgo(createdAt)}
           </CreatedAtDate>
         </Tooltip>
 
         <TextField
           sx={{ width: "300px", marginTop: "8px" }}
-          label={name === null ? "Add Name" : "Change Name"}
+          label={name === null ? "Adicionar nome" : "Alterar nome"}
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSaveName()}
           error={userName.length > USER_NAME_MAX_LENGTH || (userName === name && name !== "")}
           helperText={
             userName.length > USER_NAME_MAX_LENGTH
-              ? `Name exceeds ${USER_NAME_MAX_LENGTH} characters`
+              ? `O nome excede ${USER_NAME_MAX_LENGTH} caracteres`
               : userName.length > 0 && userName !== name
                 ? `${userName.length}/${USER_NAME_MAX_LENGTH}`
                 : userName === name && name !== ""
-                  ? "New username matches old one."
+                  ? "Novo nome de usuário corresponde ao antigo."
                   : ""
           }
           autoComplete="given-name"
@@ -270,7 +270,7 @@ const UserProfile = () => {
           onClick={handleSaveName}
           disabled={userName.length > USER_NAME_MAX_LENGTH || userName === name}
         >
-          Save name
+          Salvar nome
         </SaveBtn>
         <Button
           color="error"
@@ -279,20 +279,20 @@ const UserProfile = () => {
           onClick={() => setOpenLogoutDialog(true)}
         >
           <Logout />
-          &nbsp; Logout
+          &nbsp; Sair
         </Button>
       </Container>
       <Dialog open={openChangeImage} onClose={handleCloseImageDialog}>
         <CustomDialogTitle
-          title="Profile Picture"
-          subTitle="Change or delete profile picture"
+          title="Foto do perfil"
+          subTitle="Alterar ou excluir foto do perfil"
           onClose={handleCloseImageDialog}
           icon={<AddAPhotoRounded />}
         />
         <DialogContent>
           <TextField
-            label="Link to profile picture"
-            placeholder="Enter link to profile picture..."
+            label="Link para foto de perfil"
+            placeholder="Digite o link para a foto do perfil..."
             sx={{ my: "8px", width: "100%" }}
             value={profilePictureURL}
             onChange={(e) => {
@@ -302,7 +302,7 @@ const UserProfile = () => {
             error={profilePictureURL.length > PROFILE_PICTURE_MAX_LENGTH}
             helperText={
               profilePictureURL.length > PROFILE_PICTURE_MAX_LENGTH
-                ? `URL is too long maximum ${PROFILE_PICTURE_MAX_LENGTH} characters`
+                ? `URL é muito longo, máximo de ${PROFILE_PICTURE_MAX_LENGTH} caracteres`
                 : ""
             }
             autoComplete="url"
@@ -331,7 +331,7 @@ const UserProfile = () => {
           />
           <label htmlFor="upload-pfp">
             <Button component="span" variant="contained" fullWidth sx={{ my: "8px" }}>
-              <UploadRounded /> &nbsp; Upload from file
+              <UploadRounded /> &nbsp; Carregar do arquivo
             </Button>
           </label>
 
@@ -345,13 +345,13 @@ const UserProfile = () => {
                 variant="outlined"
                 sx={{ my: "8px" }}
               >
-                <Delete /> &nbsp; Remove Profile Picture
+                <Delete /> &nbsp; Remover foto do perfil
               </Button>
             </>
           )}
         </DialogContent>
         <DialogActions>
-          <DialogBtn onClick={handleCloseImageDialog}>Cancel</DialogBtn>
+          <DialogBtn onClick={handleCloseImageDialog}>Cancelar</DialogBtn>
           <DialogBtn
             disabled={
               profilePictureURL.length > PROFILE_PICTURE_MAX_LENGTH ||
@@ -359,7 +359,7 @@ const UserProfile = () => {
             }
             onClick={handleSaveImageLink}
           >
-            <SaveRounded /> &nbsp; Save
+            <SaveRounded /> &nbsp; Salvar
           </DialogBtn>
         </DialogActions>
       </Dialog>

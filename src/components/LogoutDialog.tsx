@@ -22,14 +22,14 @@ export function LogoutDialog({ open, onClose }: LogoutDialogProps) {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <CustomDialogTitle title="Logout Confirmation" onClose={onClose} icon={<Logout />} />
+      <CustomDialogTitle title="Confirmação de logout" onClose={onClose} icon={<Logout />} />
       <DialogContent>
-        Are you sure you want to logout? <b>Your tasks will not be saved.</b>
+        Tem certeza de que deseja sair? <b>Suas tarefas não serão salvas.</b>
       </DialogContent>
       <DialogActions>
-        <DialogBtn onClick={onClose}>Cancel</DialogBtn>
+        <DialogBtn onClick={onClose}>Cancelar</DialogBtn>
         <DialogBtn onClick={handleLogout} color="error">
-          <Logout /> &nbsp; Logout
+          <Logout /> &nbsp; Sair
         </DialogBtn>
       </DialogActions>
     </Dialog>
