@@ -12,14 +12,15 @@ import AppRouter from "./router";
 import { GlobalStyles } from "./styles";
 import { Themes, createCustomTheme, isDarkMode } from "./theme/createTheme";
 import { showToast } from "./utils";
-import { HashRouter } from "react-router-dom"; // Adicionando o HashRouter
 
 function App() {
   const { user, setUser } = useContext(UserContext);
   const systemTheme = useSystemTheme();
 
   // Initialize user properties if they are undefined
+  // this allows to add new properties to the user object without error
   const updateNestedProperties = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (userObject: any, defaultObject: any) => {
       if (!userObject) {
         return defaultObject;
@@ -139,34 +140,32 @@ function App() {
   }, [user.theme, getMuiTheme]);
 
   return (
-    <HashRouter> {/* Envolvendo com HashRouter */}
-      <MuiThemeProvider
-        theme={createCustomTheme(
-          getMuiTheme().palette.primary.main,
-          getMuiTheme().palette.secondary.main,
-          isDarkMode(user.darkmode, systemTheme, getMuiTheme().palette.secondary.main)
-            ? "dark"
-            : "light",
-        )}
+    <MuiThemeProvider
+      theme={createCustomTheme(
+        getMuiTheme().palette.primary.main,
+        getMuiTheme().palette.secondary.main,
+        isDarkMode(user.darkmode, systemTheme, getMuiTheme().palette.secondary.main)
+          ? "dark"
+          : "light",
+      )}
+    >
+      <EmotionThemeProvider
+        theme={{
+          primary: getMuiTheme().palette.primary.main,
+          secondary: getMuiTheme().palette.secondary.main,
+          darkmode: isDarkMode(user.darkmode, systemTheme, getMuiTheme().palette.secondary.main),
+          mui: getMuiTheme(),
+        }}
       >
-        <EmotionThemeProvider
-          theme={{
-            primary: getMuiTheme().palette.primary.main,
-            secondary: getMuiTheme().palette.secondary.main,
-            darkmode: isDarkMode(user.darkmode, systemTheme, getMuiTheme().palette.secondary.main),
-            mui: getMuiTheme(),
-          }}
-        >
-          <GlobalStyles />
-          <CustomToaster />
-          <ErrorBoundary>
-            <MainLayout>
-              <AppRouter />
-            </MainLayout>
-          </ErrorBoundary>
-        </EmotionThemeProvider>
-      </MuiThemeProvider>
-    </HashRouter>
+        <GlobalStyles />
+        <CustomToaster />
+        <ErrorBoundary>
+          <MainLayout>
+            <AppRouter />
+          </MainLayout>
+        </ErrorBoundary>
+      </EmotionThemeProvider>
+    </MuiThemeProvider>
   );
 }
 
