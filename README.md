@@ -1,3 +1,39 @@
+# 📝Todo App
+
+## [https://natansilva31.github.io/TodoApp/](https://natansilva31.github.io/TodoApp/)
+
+## 🏆 Time
+
+#### 👨‍💻 Desenvolvedores
+
+Natanael Silva<br/>
+📧 E-mail: natanael.silva125@outlook.com<br/>
+🌐 GitHub: github.com/NatanSilva31<br/>
+
+Fernando Matheus Ribeiro de Jesus<br/>
+📧 E-mail: fernandoribeiromatheus@gmail.com<br/>
+🌐 GitHub: github.com/FernandoRibeiro1914<br/>
+
+Karen Evellyn Muniz Silva<br/>
+📧 E-mail: kahevy20@gmail.com<br/>
+🌐 GitHub: github.com/KarenEvellyn<br/>
+
+Rodrigo Silva dos Anjos<br/>
+📧 E-mail: anjosrodrigo2004@gmail.com<br/>
+🌐 GitHub: github.com/RodrigoAnjos2004<br/>
+
+Guilherme Fernandes Lopes<br/>
+📧 E-mail: guilhermelopes3447@gmail.com<br/>
+🌐 GitHub: github.com/GuilhermeFL1<br/>
+
+Ryan Gabriel de Moraes Nascimento<br/>
+📧 E-mail: ryangmnascimento@gmail.com<br/>
+🌐 GitHub: github.com/RyanGabss<br/>
+
+Jonas Vieira Gusman<br/>
+📧 E-mail: jonas.vieira4@gmail.com<br/>
+🌐 GitHub: github.com/vieiraZip<br/>
+
 ## 💻 Tecnologias utilizadas
 
 <ul style="display: flex; flex-direction: column; gap:10px;">
