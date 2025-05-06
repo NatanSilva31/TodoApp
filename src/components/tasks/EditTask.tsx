@@ -96,7 +96,7 @@ export const EditTask = ({ open, task, onClose }: EditTaskProps) => {
       onClose();
       showToast(
         <div>
-          Task <b translate="no">{editedTask.name}</b> updated.
+          Tarefa <b translate="no">{editedTask.name}</b> atualizada.
         </div>,
       );
     }
@@ -118,7 +118,7 @@ export const EditTask = ({ open, task, onClose }: EditTaskProps) => {
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (JSON.stringify(editedTask) !== JSON.stringify(task) && open) {
-        const message = "You have unsaved changes. Are you sure you want to leave?";
+        const message = "Você tem alterações não salvas. Tem certeza de que quer sair?";
         e.returnValue = message;
         return message;
       }
@@ -148,11 +148,11 @@ export const EditTask = ({ open, task, onClose }: EditTaskProps) => {
       }}
     >
       <CustomDialogTitle
-        title="Edit Task"
+        title="Editar Tarefa"
         subTitle={
           editedTask?.lastSave
-            ? `Last Edited: ${new Date(editedTask.lastSave).toLocaleDateString()} • ${new Date(editedTask.lastSave).toLocaleTimeString()}`
-            : "Edit the details of the task."
+            ? `Última edição: ${new Date(editedTask.lastSave).toLocaleDateString()} • ${new Date(editedTask.lastSave).toLocaleTimeString()}`
+            : "Edite os detalhes da tarefa."
         }
         icon={<EditCalendarRounded />}
         onClose={onClose}
@@ -175,15 +175,15 @@ export const EditTask = ({ open, task, onClose }: EditTaskProps) => {
           helperText={
             editedTask?.name
               ? editedTask?.name.length === 0
-                ? "Name is required"
+                ? "O nome é obrigatório"
                 : editedTask?.name.length > TASK_NAME_MAX_LENGTH
-                  ? `Name is too long (maximum ${TASK_NAME_MAX_LENGTH} characters)`
+                  ? `O nome é muito longo (máximo ${TASK_NAME_MAX_LENGTH} caracteres)`
                   : `${editedTask?.name?.length}/${TASK_NAME_MAX_LENGTH}`
-              : "Name is required"
+              : "O nome é obrigatório"
           }
         />
         <StyledInput
-          label="Description"
+          label="Descrição"
           name="description"
           autoComplete="off"
           value={editedTask?.description || ""}
@@ -196,7 +196,7 @@ export const EditTask = ({ open, task, onClose }: EditTaskProps) => {
             editedTask?.description === "" || editedTask?.description === undefined
               ? undefined
               : descriptionError
-                ? `Description is too long (maximum ${DESCRIPTION_MAX_LENGTH} characters)`
+                ? `A descrição é muito longa (máximo ${DESCRIPTION_MAX_LENGTH} caracteres)`
                 : `${editedTask?.description?.length}/${DESCRIPTION_MAX_LENGTH}`
           }
         />
@@ -271,7 +271,7 @@ export const EditTask = ({ open, task, onClose }: EditTaskProps) => {
         </div>
       </DialogContent>
       <DialogActions>
-        <DialogBtn onClick={handleCancel}>Cancel</DialogBtn>
+        <DialogBtn onClick={handleCancel}>Cancelar</DialogBtn>
         <DialogBtn
           onClick={handleSave}
           color="primary"
@@ -283,7 +283,7 @@ export const EditTask = ({ open, task, onClose }: EditTaskProps) => {
             JSON.stringify(editedTask) === JSON.stringify(task)
           }
         >
-          <SaveRounded /> &nbsp; Save
+          <SaveRounded /> &nbsp; Salvar
         </DialogBtn>
       </DialogActions>
     </Dialog>

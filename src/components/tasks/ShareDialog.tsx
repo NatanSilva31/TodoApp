@@ -77,10 +77,10 @@ export const ShareDialog = ({ open, onClose, selectedTask }: ShareDialogProps) =
     const linkToCopy = generateShareableLink(selectedTask, name || "User");
     try {
       await navigator.clipboard.writeText(linkToCopy);
-      showToast("Copied link to clipboard.");
+      showToast("Link copiado para a área de transferência.");
     } catch (error) {
-      console.error("Error copying link to clipboard:", error);
-      showToast("Error copying link to clipboard", { type: "error" });
+      console.error("Erro ao copiar link para a área de transferência:", error);
+      showToast("Erro ao copiar link para a área de transferência", { type: "error" });
     }
   };
 
@@ -89,13 +89,13 @@ export const ShareDialog = ({ open, onClose, selectedTask }: ShareDialogProps) =
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Share Task",
-          text: `Check out this task: ${selectedTask.name}`,
+          title: "Compartilhar tarefa",
+          text: `Confira esta tarefa: ${selectedTask.name}`,
           url: linkToShare,
         });
       } catch (error) {
-        console.error("Error sharing link:", error);
-        showToast("Error sharing link", { type: "error" });
+        console.error("Link de compartilhamento com erro:", error);
+        showToast("Link de compartilhamento com erro", { type: "error" });
       }
     }
   };
@@ -156,8 +156,8 @@ export const ShareDialog = ({ open, onClose, selectedTask }: ShareDialogProps) =
       }}
     >
       <CustomDialogTitle
-        title="Share Task"
-        subTitle="Share your task with others."
+        title="Compartilhar Tarefa"
+        subTitle="Compartilhe sua tarefa com outras pessoas."
         onClose={onClose}
         icon={<IosShare />}
       />
@@ -204,7 +204,7 @@ export const ShareDialog = ({ open, onClose, selectedTask }: ShareDialogProps) =
                         onClick={handleCopyToClipboard}
                         sx={{ p: "12px", borderRadius: "14px", mr: "4px" }}
                       >
-                        <ContentCopyRounded /> &nbsp; Copy
+                        <ContentCopyRounded /> &nbsp; Copiar
                       </Button>
                     </InputAdornment>
                   ),
@@ -231,7 +231,7 @@ export const ShareDialog = ({ open, onClose, selectedTask }: ShareDialogProps) =
                 variant="outlined"
                 onClick={() => saveQRCode(selectedTask.name || "")}
               >
-                <DownloadRounded /> &nbsp; Download QR Code
+                <DownloadRounded /> &nbsp; Baixar QR Code
               </DownloadQrCodeBtn>
             </Box>
           </TabPanel>
@@ -247,7 +247,7 @@ export const ShareDialog = ({ open, onClose, selectedTask }: ShareDialogProps) =
                 }}
               >
                 <Button variant="contained" color="inherit" onClick={handleAddToAppleCalendar}>
-                  <Apple /> &nbsp; Add to Apple Calendar
+                  <Apple /> &nbsp; Adicionar ao calendário da Apple
                 </Button>
               </Box>
             </TabPanel>
@@ -255,15 +255,15 @@ export const ShareDialog = ({ open, onClose, selectedTask }: ShareDialogProps) =
         </TabGroupProvider>
         {shareTabVal !== 2 && (
           <Alert severity="info" sx={{ mt: "20px" }}>
-            <AlertTitle>Share Your Task</AlertTitle>
-            Copy the link to share manually or use the share button to send it via other apps.
+            <AlertTitle>Compartilhe sua tarefa</AlertTitle>
+            Copie o link para compartilhar manualmente ou use o botão de compartilhamento para enviá-lo por meio de outros aplicativos.
           </Alert>
         )}
       </DialogContent>
       <DialogActions>
-        <DialogBtn onClick={onClose}>Close</DialogBtn>
+        <DialogBtn onClick={onClose}>Fechar</DialogBtn>
         <DialogBtn onClick={handleShare}>
-          <IosShare sx={{ mb: "4px" }} /> &nbsp; Share
+          <IosShare sx={{ mb: "4px" }} /> &nbsp; Compartilhar
         </DialogBtn>
       </DialogActions>
     </Dialog>
