@@ -39,18 +39,18 @@ const AddTask = () => {
   const n = useNavigate();
 
   useEffect(() => {
-    document.title = "Todo App - Add Task";
+    document.title = "Todo App - Adicionar tarefa";
   }, []);
 
   useEffect(() => {
     if (name.length > TASK_NAME_MAX_LENGTH) {
-      setNameError(`Name should be less than or equal to ${TASK_NAME_MAX_LENGTH} characters`);
+      setNameError(`O nome deve ser menor ou igual a ${TASK_NAME_MAX_LENGTH} caracteres`);
     } else {
       setNameError("");
     }
     if (description.length > DESCRIPTION_MAX_LENGTH) {
       setDescriptionError(
-        `Description should be less than or equal to ${DESCRIPTION_MAX_LENGTH} characters`,
+        `A descrição deve ser menor ou igual a ${DESCRIPTION_MAX_LENGTH} caracteres`,
       );
     } else {
       setDescriptionError("");
@@ -61,7 +61,7 @@ const AddTask = () => {
     const newName = event.target.value;
     setName(newName);
     if (newName.length > TASK_NAME_MAX_LENGTH) {
-      setNameError(`Name should be less than or equal to ${TASK_NAME_MAX_LENGTH} characters`);
+      setNameError(`O nome deve ser menor ou igual a ${TASK_NAME_MAX_LENGTH} caracteres`);
     } else {
       setNameError("");
     }
@@ -72,7 +72,7 @@ const AddTask = () => {
     setDescription(newDescription);
     if (newDescription.length > DESCRIPTION_MAX_LENGTH) {
       setDescriptionError(
-        `Description should be less than or equal to ${DESCRIPTION_MAX_LENGTH} characters`,
+        `A descrição deve ser menor ou igual a ${DESCRIPTION_MAX_LENGTH} caracteres`,
       );
     } else {
       setDescriptionError("");
@@ -85,7 +85,7 @@ const AddTask = () => {
 
   const handleAddTask = () => {
     if (name === "") {
-      showToast("Task name is required.", { type: "error" });
+      showToast("O nome da tarefa é obrigatório.", { type: "error" });
       return;
     }
 
@@ -115,7 +115,7 @@ const AddTask = () => {
 
     showToast(
       <div>
-        Added task - <b>{newTask.name}</b>
+        Tarefa adicionada - <b>{newTask.name}</b>
       </div>,
       {
         icon: <AddTaskRounded />,
@@ -231,7 +231,7 @@ const AddTask = () => {
             name.length > TASK_NAME_MAX_LENGTH || description.length > DESCRIPTION_MAX_LENGTH
           }
         >
-          Create Task
+          Criar tarefa
         </AddTaskButton>
       </Container>
     </>

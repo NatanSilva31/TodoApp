@@ -17,7 +17,7 @@ const TaskDetails = () => {
   const task = tasks.find((task) => task.id.toString().replace(".", "") === formattedId);
 
   useEffect(() => {
-    document.title = `Todo App - ${task?.name || "Task Details"}`;
+    document.title = `Todo App - ${task?.name || "Detalhes da tarefa"}`;
   }, [task?.name]);
 
   if (!task) {
@@ -25,7 +25,7 @@ const TaskDetails = () => {
       <NotFound
         message={
           <div>
-            Task with id <PathName>{formattedId}</PathName> was not found.
+            A tarefa com id <PathName>{formattedId}</PathName> não foi encontrada.
           </div>
         }
       />

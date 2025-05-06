@@ -65,12 +65,12 @@ const Categories = () => {
   const n = useNavigate();
 
   useEffect(() => {
-    document.title = "Todo App - Categories";
+    document.title = "Todo App - Categorias";
     if (!user.settings.enableCategories) {
       n("/");
     }
     if (name.length > CATEGORY_NAME_MAX_LENGTH) {
-      setNameError(`Name is too long (maximum ${CATEGORY_NAME_MAX_LENGTH} characters)`);
+      setNameError(`O nome é muito longo (máximo ${CATEGORY_NAME_MAX_LENGTH} caracteres)`);
     }
   }, [n, name.length, user.settings]);
 
@@ -108,7 +108,7 @@ const Categories = () => {
 
       showToast(
         <div>
-          Deleted category - <b translate="no">{categoryName}.</b>
+          Categoria excluída - <b translate="no">{categoryName}.</b>
         </div>,
       );
     }
@@ -118,7 +118,7 @@ const Categories = () => {
     const newName = event.target.value;
     setName(newName);
     if (newName.length > CATEGORY_NAME_MAX_LENGTH) {
-      setNameError(`Name is too long (maximum ${CATEGORY_NAME_MAX_LENGTH} characters)`);
+      setNameError(`O nome é muito longo (máximo ${CATEGORY_NAME_MAX_LENGTH} caracteres)`);
     } else {
       setNameError("");
     }
@@ -128,7 +128,7 @@ const Categories = () => {
     const newName = event.target.value;
     setEditName(newName);
     if (newName.length > CATEGORY_NAME_MAX_LENGTH) {
-      setEditNameError(`Name is too long (maximum ${CATEGORY_NAME_MAX_LENGTH} characters)`);
+      setEditNameError(`O nome é muito longo (máximo ${CATEGORY_NAME_MAX_LENGTH} caracteres)`);
     } else {
       setEditNameError("");
     }
@@ -148,7 +148,7 @@ const Categories = () => {
 
       showToast(
         <div>
-          Added category - <b translate="no">{newCategory.name}</b>
+          Categoria adicionada - <b translate="no">{newCategory.name}</b>
         </div>,
       );
 
@@ -161,7 +161,7 @@ const Categories = () => {
       setColor(theme.primary);
       setEmoji("");
     } else {
-      showToast("Category name is required.", { type: "error" });
+      showToast("O nome da categoria é obrigatório.", { type: "error" });
     }
   };
 
@@ -214,7 +214,7 @@ const Categories = () => {
 
       showToast(
         <div>
-          Updated category - <b translate="no">{editName}</b>
+          Categoria atualizada - <b translate="no">{editName}</b>
         </div>,
       );
 
@@ -236,12 +236,12 @@ const Categories = () => {
   };
 
   if (!user.settings.enableCategories) {
-    return <NotFound message="Categories are not enabled." />;
+    return <NotFound message="As categorias não estão habilitadas." />;
   }
 
   return (
     <>
-      <TopBar title="Categories" />
+      <TopBar title="Categorias" />
       <CategoriesContainer>
         {user.categories.length > 0 ? (
           <CategoryElementsContainer>
@@ -271,7 +271,7 @@ const Categories = () => {
                     &nbsp;
                     <span style={{ wordBreak: "break-all", fontWeight: 600 }}>{category.name}</span>
                     {totalTasksCount > 0 && (
-                      <Tooltip title="The percentage of completion of tasks assigned to this category">
+                      <Tooltip title="Porcentagem de conclusão das tarefas atribuídas a esta categoria">
                         <span style={{ opacity: 0.8, fontStyle: "italic" }}>
                           {displayPercentage}
                         </span>
@@ -405,7 +405,7 @@ const Categories = () => {
           </DialogContent>
 
           <DialogActions>
-            <DialogBtn onClick={() => setOpenDeleteDialog(false)}>Cancel</DialogBtn>
+            <DialogBtn onClick={() => setOpenDeleteDialog(false)}>Cancelar</DialogBtn>
             <DialogBtn
               onClick={() => {
                 handleDelete(selectedCategoryId);

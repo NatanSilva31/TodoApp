@@ -34,7 +34,7 @@ const SharePage = () => {
         (task.category && task.category.some((cat) => !isHexColor(cat.color)))
       ) {
         setError(true);
-        setErrorDetails("Invalid task or category color format.");
+        setErrorDetails("Formato de cor de tarefa ou categoria inválido.");
         return;
       }
 
@@ -51,31 +51,31 @@ const SharePage = () => {
         } else {
           // new compressed format
           decodedTask = LZString.decompressFromEncodedURIComponent(decodedTask);
-          if (!decodedTask) throw new Error("Decompression failed.");
+          if (!decodedTask) throw new Error("Falha na descompactação.");
           handleTaskData(decodedTask);
         }
       } catch (error) {
-        console.error("Error decoding task data:", error);
+        console.error("Erro ao decodificar os dados da tarefa:", error);
         setError(true);
-        setErrorDetails("Failed to decode task data. The link may be corrupted. " + error);
+        setErrorDetails("Falha ao decodificar os dados da tarefa. O link pode estar corrompido. " + error);
       }
     } else {
       setError(true);
-      setErrorDetails("No task data found in the link.");
+      setErrorDetails("Nenhum dado de tarefa encontrado no link.");
     }
 
     if (userNameParam) {
       const decodedUserName = decodeURIComponent(userNameParam);
       if (decodedUserName.length > USER_NAME_MAX_LENGTH) {
         setError(true);
-        setErrorDetails("User name is too long.");
+        setErrorDetails("O nome de usuário é muito longo.");
       }
       setUserName(decodedUserName);
     }
   }, [taskParam, userNameParam]);
 
   useEffect(() => {
-    document.title = `Todo App - Recieved Task ${taskData ? "(" + taskData.name + ")" : ""}`;
+    document.title = `Todo App - Tarefa Recebida ${taskData ? "(" + taskData.name + ")" : ""}`;
   }, [taskData]);
 
   const handleAddTask = () => {
@@ -115,7 +115,7 @@ const SharePage = () => {
       n("/");
       showToast(
         <div>
-          Added shared task - <b translate="no">{taskData.name}</b>
+          Tarefa compartilhada adicionada - <b translate="no">{taskData.name}</b>
         </div>,
         {
           icon: <AddTaskRounded />,
@@ -143,13 +143,13 @@ const SharePage = () => {
         {!error && taskData ? (
           <>
             <CustomDialogTitle
-              title="Recieved Task"
-              subTitle="You can now include it in your list."
+              title="Tarefa recebida"
+              subTitle="Agora você pode incluí-la em sua lista."
               icon={<AddTaskRounded />}
             />
             <DialogContent>
               <p style={{ fontSize: "16px", marginLeft: "6px" }}>
-                <b translate={userName === "User" ? "yes" : "no"}>{userName}</b> shared you a task.
+                <b translate={userName === "User" ? "yes" : "no"}>{userName}</b> compartilhou uma tarefa para você.
               </p>
               <TaskItem
                 task={taskData}
@@ -160,7 +160,7 @@ const SharePage = () => {
               />
               {taskData && taskData.description && taskData.description.match(URL_REGEX) && (
                 <Alert sx={{ mt: "20px" }} severity="warning">
-                  <AlertTitle>This task contains the following links:</AlertTitle>{" "}
+                  <AlertTitle>Esta tarefa contém os seguintes links:</AlertTitle>{" "}
                   {(() => {
                     const links = taskData.description.match(URL_REGEX)?.map((link) => link);
                     if (links) {
@@ -181,7 +181,7 @@ const SharePage = () => {
             </DialogContent>
             <DialogActions>
               <DialogBtn color="error" onClick={() => n("/")}>
-                <DoNotDisturbAltRounded /> &nbsp; Decline
+                <DoNotDisturbAltRounded /> &nbsp; Recusar
               </DialogBtn>
               <DialogBtn
                 onClick={() => {
@@ -189,26 +189,26 @@ const SharePage = () => {
                   n("/");
                 }}
               >
-                <AddTaskRounded /> &nbsp; Add Task
+                <AddTaskRounded /> &nbsp; Adicionar tarefa
               </DialogBtn>
             </DialogActions>
           </>
         ) : (
           <>
             <CustomDialogTitle
-              title="Failed to recieve Task"
-              subTitle="This Task could not be processed."
+              title="Falha ao receber a tarefa"
+              subTitle="Esta tarefa não pode ser processada."
               onClose={() => n("/")}
               icon={<ErrorRounded />}
             />
             <DialogContent>
               <Alert severity="error">
-                <AlertTitle>Error: failed to process the task</AlertTitle>
+                <AlertTitle>Erro: falha ao processar a tarefa</AlertTitle>
                 {errorDetails}
               </Alert>
             </DialogContent>
             <DialogActions>
-              <DialogBtn onClick={() => n("/")}>Close</DialogBtn>
+              <DialogBtn onClick={() => n("/")}>Fechar</DialogBtn>
             </DialogActions>
           </>
         )}

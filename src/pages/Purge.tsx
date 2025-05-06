@@ -37,7 +37,7 @@ const Purge = () => {
   const [deleteAllDialog, setDeleteAllDialog] = useState<boolean>(false);
 
   useEffect(() => {
-    document.title = "Todo App - Tarefas de limpeza";
+    document.title = "Todo App - Exclusão de Tarefas";
   }, []);
 
   const doneTasks = tasks.filter((task) => task.done);
@@ -79,7 +79,7 @@ const Purge = () => {
     purgeTasks(tasksToPurge);
     showToast(
       <div>
-        Purged selectedTasks tasks: <b translate="no">{selectedNamesList}</b>
+        Tarefas selecionadas para exclusão <b translate="no">{selectedNamesList}</b>
       </div>,
     );
   };
@@ -127,13 +127,13 @@ const Purge = () => {
 
   return (
     <>
-      <TopBar title="Tarefas de limpeza" />
-      <ManagementHeader>Selecionar tarefas a serem limpas</ManagementHeader>
+      <TopBar title="Exclusão de Tarefas" />
+      <ManagementHeader>Selecionar tarefas para exclusão</ManagementHeader>
       <ManagementContainer>
         {doneTasks.length > 0 && renderTasks(doneTasks, "Tarefas concluídas")}
         {notDoneTasks.length > 0 && renderTasks(notDoneTasks, "Tarefas não concluídas")}
         {tasks.length === 0 && (
-          <h3 style={{ opacity: 0.8, fontStyle: "italic" }}>Você não tem nenhuma tarefa para limpar</h3>
+          <h3 style={{ opacity: 0.8, fontStyle: "italic" }}>Você não tem nenhuma tarefa para excluir</h3>
         )}
       </ManagementContainer>
       <ManagementButtonsContainer>
@@ -148,12 +148,12 @@ const Purge = () => {
           }
         >
           <ManagementButton onClick={handlePurgeSelected} disabled={selectedTasks.length === 0}>
-            <DeleteSweepRounded /> &nbsp; Limpar selecionado{" "}
+            <DeleteSweepRounded /> &nbsp; Executar exclusão{" "}
             {selectedTasks.length > 0 && `[${selectedTasks.length}]`}
           </ManagementButton>
         </Tooltip>
         <ManagementButton onClick={handlePurgeDone} disabled={doneTasks.length === 0}>
-          <DoneAllRounded /> &nbsp; Limpeza feita
+          <DoneAllRounded /> &nbsp; Exclusão feita
         </ManagementButton>
         <ManagementButton color="error" onClick={handlePurgeAll} disabled={tasks.length === 0}>
           <DeleteForeverRounded /> &nbsp; Limpar todas as tarefas
@@ -161,8 +161,8 @@ const Purge = () => {
       </ManagementButtonsContainer>
       <Dialog open={deleteAllDialog} onClose={() => setDeleteAllDialog(false)}>
         <CustomDialogTitle
-          title="Purge All Tasks"
-          subTitle="Confirm that you want to purge all tasks"
+          title="Limpar todas as tarefas"
+          subTitle="Confirme que deseja limpar todas as tarefas"
           onClose={() => setDeleteAllDialog(false)}
           icon={<DeleteForeverRounded />}
         />
@@ -176,7 +176,7 @@ const Purge = () => {
             onClick={() => {
               purgeTasks(tasks);
               setDeleteAllDialog(false);
-              showToast("Limpeza efetuada");
+              showToast("Exclusão efetuada");
             }}
           >
             <DeleteForeverRounded /> &nbsp; Limpar

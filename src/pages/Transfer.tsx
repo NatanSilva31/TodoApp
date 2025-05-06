@@ -45,7 +45,7 @@ const Transfer = () => {
   useCtrlS();
 
   useEffect(() => {
-    document.title = "Todo App - Transfer tasks";
+    document.title = "Todo App - Transferir tarefas";
   }, []);
 
   // clear file input after logout
@@ -70,7 +70,7 @@ const Transfer = () => {
     exportTasksToJson(tasksToExport);
     showToast(
       <div>
-        Exported tasks:{" "}
+        Tarefas exportadas:{" "}
         <ul>
           {tasksToExport.map((task) => (
             <li key={task.id}>
@@ -88,11 +88,11 @@ const Transfer = () => {
 
   const handleExportAll = () => {
     if (user.tasks.length === 0) {
-      showToast("No tasks to export", { type: "error" });
+      showToast("Nenhuma tarefa para exportar", { type: "error" });
       return;
     }
     exportTasksToJson(user.tasks);
-    showToast(`Exported all tasks (${user.tasks.length})`);
+    showToast(`Exportou todas as tarefas (${user.tasks.length})`);
   };
 
   const handleImport = useCallback(
@@ -103,8 +103,8 @@ const Transfer = () => {
         if (file.type !== "application/json") {
           showToast(
             <div>
-              Incorrect file type {file.type !== "" && <span translate="no">{file.type}</span>}.
-              Please select a JSON file.
+              Tipo de arquivo incorreto {file.type !== "" && <span translate="no">{file.type}</span>}.
+              Selecione um arquivo do tipo JSON.
             </div>,
             { type: "error" },
           );
@@ -118,7 +118,7 @@ const Transfer = () => {
             const importedTasks = JSON.parse(e.target?.result as string) as Task[];
 
             if (!Array.isArray(importedTasks)) {
-              showToast("Imported file has an invalid structure.", { type: "error" });
+              showToast("O arquivo importado tem uma estrutura inválida.", { type: "error" });
               return;
             }
 
@@ -140,10 +140,10 @@ const Transfer = () => {
             if (invalidTasks.length > 0) {
               const invalidTaskNames = invalidTasks.map((task) => task.name).join(", ");
               console.error(
-                `These tasks cannot be imported due to exceeding maximum character lengths: ${invalidTaskNames}`,
+                `Essas tarefas não podem ser importadas devido ao excesso de comprimento máximo de caracteres: ${invalidTaskNames}`,
               );
               showToast(
-                `These tasks cannot be imported due to exceeding maximum character lengths: ${invalidTaskNames}`,
+                `Essas tarefas não podem ser importadas devido ao excesso de comprimento máximo de caracteres: ${invalidTaskNames}`,
                 { type: "error" },
               );
               return;
@@ -160,7 +160,7 @@ const Transfer = () => {
             });
 
             if (hasInvalidColors) {
-              showToast("Imported file contains tasks with invalid color formats.", {
+              showToast("O arquivo importado contém tarefas com formatos de cores inválidos.", {
                 type: "error",
               });
               return;
@@ -178,7 +178,7 @@ const Transfer = () => {
               const maxSizeMB = maxFileSize / (1024 * 1024);
 
               showToast(
-                `File size is too large (${formatMB.format(fileSizeMB)}/${formatMB.format(maxSizeMB)})`,
+                `O tamanho do arquivo é muito grande (${formatMB.format(fileSizeMB)}/${formatMB.format(maxSizeMB)})`,
                 { type: "error" },
               );
               return;
@@ -225,11 +225,11 @@ const Transfer = () => {
             const importedTaskNames = importedTasks.map((task) => task.name).join(", ");
 
             // Display the alert with the list of imported task names
-            console.log(`Imported Tasks: ${importedTaskNames}`);
+            console.log(`Tarefas importadas: ${importedTaskNames}`);
 
             showToast(
               <div>
-                Tasks Successfully Imported from <br />
+                Tarefas importadas com êxito de <br />
                 <i translate="no" style={{ wordBreak: "break-all" }}>
                   {file.name}
                 </i>
@@ -251,10 +251,10 @@ const Transfer = () => {
               fileInputRef.current.value = "";
             }
           } catch (error) {
-            console.error(`Error parsing the imported file ${file.name}:`, error);
+            console.error(`Erro ao analisar o arquivo importado ${file.name}:`, error);
             showToast(
               <div style={{ wordBreak: "break-all" }}>
-                Error parsing the imported file: <br /> <i>{file.name}</i>
+                Erro ao analisar o arquivo importado: <br /> <i>{file.name}</i>
               </div>,
               { type: "error" },
             );
@@ -278,14 +278,14 @@ const Transfer = () => {
       } else {
         showToast(
           <div>
-            Failed to import task from the provided link. Please ensure that the link is copied
-            correctly.
+            Falha ao importar a tarefa do link fornecido. Certifique-se de que o link foi copiado
+            corretamente.
           </div>,
           { type: "error" },
         );
       }
     } catch (err) {
-      console.error("Failed to read clipboard contents: ", err);
+      console.error("Falha ao ler o conteúdo da área de transferência: ", err);
     }
   };
 
@@ -295,7 +295,7 @@ const Transfer = () => {
       const file = new File([text], "Clipboard", { type: "application/json" });
       handleImport(file);
     } catch (err) {
-      console.error("Failed to read clipboard contents: ", err);
+      console.error("Falha ao ler o conteúdo da área de transferência: ", err);
     }
   };
 
@@ -351,10 +351,10 @@ const Transfer = () => {
 
   return (
     <>
-      <TopBar title="Transfer Tasks" />
+      <TopBar title="Transferir Tarefas" />
       <ManagementHeader>
-        Select Tasks To Export&nbsp;
-        <Tooltip title="Duplicates will be removed during import">
+      Selecione as tarefas a serem exportadas&nbsp;
+        <Tooltip title="As duplicatas serão removidas durante a importação">
           <IconButton style={{ color: "#ffffff" }}>
             <InfoIcon />
           </IconButton>
@@ -383,7 +383,7 @@ const Transfer = () => {
             </TaskManagementContainer>
           ))
         ) : (
-          <h3 style={{ opacity: 0.8, fontStyle: "italic" }}>You don't have any tasks to export</h3>
+          <h3 style={{ opacity: 0.8, fontStyle: "italic" }}>Você não tem nenhuma tarefa para exportar</h3>
         )}
       </ManagementContainer>
 
@@ -404,15 +404,15 @@ const Transfer = () => {
           }
         >
           <ManagementButton onClick={handleExport} disabled={selectedTasks.length === 0}>
-            <FileDownload /> &nbsp; Export Selected to JSON{" "}
+            <FileDownload /> &nbsp; Exportar selecionado para JSON{" "}
             {selectedTasks.length > 0 && `[${selectedTasks.length}]`}
           </ManagementButton>
         </Tooltip>
         <ManagementButton onClick={handleExportAll} disabled={user.tasks.length === 0}>
-          <FileDownload /> &nbsp; Export All Tasks to JSON
+          <FileDownload /> &nbsp; Exportar todas as tarefas para JSON
         </ManagementButton>
 
-        <h2 style={{ textAlign: "center" }}>Import Tasks From JSON</h2>
+        <h2 style={{ textAlign: "center" }}>Importar tarefas do JSON</h2>
 
         {systemInfo.os !== "Android" && systemInfo.os !== "iOS" && (
           <div style={{ width: "300px" }}>
@@ -423,7 +423,7 @@ const Transfer = () => {
               isDragging={isDragging}
             >
               <FileUpload fontSize="large" color="primary" />
-              <div>Drop JSON file here to import tasks </div>
+              <div>Solte o arquivo JSON aqui para importar tarefas </div>
             </DropZone>
           </div>
         )}
@@ -446,17 +446,17 @@ const Transfer = () => {
               width: "300px",
             }}
           >
-            <FileUpload /> &nbsp; Select JSON File
+            <FileUpload /> &nbsp; Selecione o arquivo JSON
           </Button>
         </label>
 
         <ManagementButton onClick={handleImportFromClipboard}>
-          <IntegrationInstructionsRounded /> &nbsp; Import JSON from clipboard
+          <IntegrationInstructionsRounded /> &nbsp; Importar JSON da área de transferência
         </ManagementButton>
 
         {/* Solution for PWA on iOS: */}
         <ManagementButton onClick={handleImportFromLink}>
-          <Link /> &nbsp; Import From Link
+          <Link /> &nbsp; Importar do link
         </ManagementButton>
       </ManagementButtonsContainer>
     </>

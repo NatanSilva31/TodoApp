@@ -155,7 +155,7 @@ const timeGreeting = useMemo(() => {
                   }}
                 >
                   <TodayRounded sx={{ fontSize: "20px", verticalAlign: "middle" }} />
-                  &nbsp;Tasks due today:&nbsp;
+                  &nbsp;Tarefas com vencimento hoje:&nbsp;
                   <span translate="no">
                     {new Intl.ListFormat("en", { style: "long" }).format(
                       taskStats.tasksDueTodayNames,
@@ -179,12 +179,12 @@ const timeGreeting = useMemo(() => {
         </TaskProvider>
       </Suspense>
       {!isMobile && (
-        <Tooltip title={tasks.length > 0 ? "Add New Task" : "Add Task"} placement="left">
+        <Tooltip title={tasks.length > 0 ? "Adicionar nova tarefa" : "Adicionar tarefa"} placement="left">
           <AddButton
             animate={tasks.length === 0}
             glow={settings.enableGlow}
             onClick={() => n("add")}
-            aria-label="Add Task"
+            aria-label="Adicionar Tarefa"
           >
             <AddRounded style={{ fontSize: "44px" }} />
           </AddButton>

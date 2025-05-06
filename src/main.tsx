@@ -20,7 +20,7 @@ const offlinePreparationCount = parseInt(
 );
 
 if (offlinePreparationCount < 3 && !localStorage.getItem("initialCachingComplete")) {
-  showToast("Preparing app for offline use...", {
+  showToast("Preparando o aplicativo para uso offline...", {
     duration: Infinity,
     type: "blank",
     id: "initial-offline-preparation",
