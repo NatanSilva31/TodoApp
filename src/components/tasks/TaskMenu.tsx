@@ -152,13 +152,13 @@ export const TaskMenu = () => {
     }).format(new Date(selectedTask?.date || ""));
 
     const taskDeadline = selectedTask?.deadline
-      ? `. Task Deadline: ${calculateDateDifference(
+      ? `. Prazo da tarefa: ${calculateDateDifference(
           new Date(selectedTask.deadline),
           voice ? voice.lang : navigator.language,
         )}`
       : "";
 
-    const textToRead = `${taskName}${taskDescription}Date: ${taskDate}${taskDeadline}`;
+    const textToRead = `${taskName}${taskDescription}Data: ${taskDate}${taskDeadline}`;
 
     const utterThis: SpeechSynthesisUtterance = new SpeechSynthesisUtterance(textToRead);
 
@@ -193,10 +193,10 @@ export const TaskMenu = () => {
         return (
           <ReadAloudContainer>
             <ReadAloudHeader translate="yes">
-              <RecordVoiceOver /> Read aloud: <span translate="no">{selectedTask?.name}</span>
+              <RecordVoiceOver /> Leia em voz alta: <span translate="no">{selectedTask?.name}</span>
             </ReadAloudHeader>
             <span translate="yes" style={{ marginTop: "8px", fontSize: "16px" }}>
-              Voice: <span translate="no">{utterThis.voice?.name || "Default"}</span>
+              Voz: <span translate="no">{utterThis.voice?.name || "Default"}</span>
             </span>
             <div translate="no">
               <Marquee delay={0.6} play={isPlaying}>
