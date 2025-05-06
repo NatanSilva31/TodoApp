@@ -1,3 +1,49 @@
+# 📝Todo App
+
+## [https://natansilva31.github.io/TodoApp/](https://natansilva31.github.io/TodoApp/)
+
+## 🏆 Time
+
+#### 👨‍💻 Desenvolvedores
+
+Natanael Silva<br/>
+📧 E-mail: natanael.silva125@outlook.com<br/>
+🌐 GitHub: github.com/NatanSilva31<br/>
+
+Fernando Matheus Ribeiro de Jesus<br/>
+📧 E-mail: fernandoribeiromatheus@gmail.com<br/>
+🌐 GitHub: github.com/FernandoRibeiro1914<br/>
+
+Karen Evellyn Muniz Silva<br/>
+📧 E-mail: kahevy20@gmail.com<br/>
+🌐 GitHub: github.com/KarenEvellyn<br/>
+
+Rodrigo Silva dos Anjos<br/>
+📧 E-mail: anjosrodrigo2004@gmail.com<br/>
+🌐 GitHub: github.com/RodrigoAnjos2004<br/>
+
+Guilherme Fernandes Lopes<br/>
+📧 E-mail: guilhermelopes3447@gmail.com<br/>
+🌐 GitHub: github.com/GuilhermeFL1<br/>
+
+Ryan Gabriel de Moraes Nascimento<br/>
+📧 E-mail: ryangmnascimento@gmail.com<br/>
+🌐 GitHub: github.com/RyanGabss<br/>
+
+Jonas Vieira Gusman<br/>
+📧 E-mail: jonas.vieira4@gmail.com<br/>
+🌐 GitHub: github.com/vieiraZip<br/>
+
+## ⚡ Funcionalidades
+
+### 🔗 Compartilhe tarefas por link ou código QR
+
+Compartilhe facilmente suas tarefas com outras pessoas usando um link ou código QR, com a opção de baixar o código QR.
+
+**[Link com Exemplo](https://natansilva31.github.io/TodoApp/#/share?task=N4IgJg9gdgpiBcAzAhgGwM4wDQgA4EspYwEUNsQpkBbOeEABQCcIArGAFwgAIBlGKgGNuAWm4AVZExgp0IHGBjpBTfLg75oCEAGFVyAOcBjnou4BXat1wt2XbgDcIqDskjWpybivyGT3M1dpWXkQGGo2fG0ARkQAFgA2AA4RACYABnSwEVi4gCM80MFnCCZtAGIAMUqAUQBBVKTQsGQOOhAM1IBWEXSevvFopPhUgGYRroA6dOjUgC1mmDdUQnbO-p6M8XTU+C6ATnhM6cyFnEFWmABzUoBPBABtUHwSemQUdMQwPLiRRATkiI4mAusgRPs3OkgTBUqkwKk8kkYEk4tFQlRaNoamBzBdjBBQuFIjF4i0iiUyvRyohEEjUnEQABfLDPV4gJIJUZJPLIREiPJdQQ9OL7BK-fag6I5PIJPKjQSCdLINwJdE0doAESUAicqAc+FoUC4hIirCi9FioJ6iBgn3JqFKFS66QS0WqTIAujhUMh0BxeMgHGsdhtel1BsMxvA4qNJkkOQtGUA&userName=User)**
+
+<img src="https://github.com/NatanSilva31/TodoApp/blob/main/screenshots/ShareDialog.png" width="300px" alt="Shared Task" />
+
 ## 💻 Tecnologias utilizadas
 
 <ul style="display: flex; flex-direction: column; gap:10px;">
