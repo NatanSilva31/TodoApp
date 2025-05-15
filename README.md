@@ -42,7 +42,7 @@ Compartilhe facilmente suas tarefas com outras pessoas usando um link ou código
 
 **[Link com Exemplo]()**
 
-<img src="https://github.com/NatanSilva31/TodoApp/blob/main/screenshots/ShareDialog.png" width="300px" alt="Shared Task" />
+<img src="" width="300px" alt="Shared Task" />
 
 ## 💻 Tecnologias utilizadas
 
