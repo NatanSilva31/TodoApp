@@ -19,7 +19,7 @@ export const updatePrompt = (r: ServiceWorkerRegistration): void => {
             (t: Toast) => (
               <Stack spacing={2}>
                 <Typography variant="subtitle1" fontWeight={700}>
-                  A new version of the app is available. Reload to update?
+                  Uma nova versão do aplicativo está disponível. Recarregar para atualizar?
                 </Typography>
                 <Stack direction="row" spacing={1}>
                   <Button
@@ -31,10 +31,10 @@ export const updatePrompt = (r: ServiceWorkerRegistration): void => {
                     }}
                     startIcon={<UpdateRounded />}
                   >
-                    Reload
+                    Atualizar
                   </Button>
                   <Button fullWidth variant="outlined" onClick={() => toast.dismiss(t.id)}>
-                    Dismiss
+                    Dispensar
                   </Button>
                 </Stack>
               </Stack>

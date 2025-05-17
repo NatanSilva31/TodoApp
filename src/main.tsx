@@ -21,14 +21,14 @@ const offlinePreparationCount = parseInt(
 
 if (offlinePreparationCount < 3 && !localStorage.getItem("initialCachingComplete")) {
   showToast("Preparando o aplicativo para uso offline...", {
-    duration: Infinity,
+    duration: 3000,
     type: "blank",
     id: "initial-offline-preparation",
     icon: <CircularProgress size={20} thickness={4} />,
   });
 
   localStorage.setItem("offlinePreparationCount", (offlinePreparationCount + 1).toString());
-}
+}//
 
 registerSW({
   onRegistered(r) {
@@ -40,7 +40,7 @@ registerSW({
     toast.dismiss("initial-offline-preparation");
 
     if (!localStorage.getItem("initialCachingComplete")) {
-      showToast("App is ready to work offline.", { type: "success" });
+      showToast("O aplicativo está pronto para trabalhar offline.", { type: "success" });
       localStorage.setItem("initialCachingComplete", "true");
     }
   },

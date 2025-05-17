@@ -17,7 +17,7 @@ export function LogoutDialog({ open, onClose }: LogoutDialogProps) {
   const handleLogout = () => {
     setUser(defaultUser);
     onClose();
-    showToast("You have been successfully logged out");
+    showToast("Você foi desconectado com sucesso");
   };
 
   return (

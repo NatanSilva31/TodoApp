@@ -110,12 +110,12 @@ const emojiStyles: OptionItem<EmojiStyle>[] = [
 }));
 
 const tabsOptions: { icon: JSX.Element; label: string }[] = [
-  { icon: <PaletteRounded />, label: "Appearance" },
-  { icon: <SettingsRounded />, label: "General" },
+  { icon: <PaletteRounded />, label: "Aparência" },
+  { icon: <SettingsRounded />, label: "Em geral" },
   { icon: <EmojiEmotionsRounded />, label: "Emoji" },
-  { icon: <RecordVoiceOverRounded />, label: "Read Aloud" },
-  { icon: <KeyboardCommandKeyRounded />, label: "Shortcuts" },
-  { icon: <InfoRounded />, label: "About" },
+  { icon: <RecordVoiceOverRounded />, label: "Ler em voz alta" },
+  { icon: <KeyboardCommandKeyRounded />, label: "Atalhos" },
+  { icon: <InfoRounded />, label: "Sobre" },
 ];
 
 interface SettingsProps {
@@ -386,8 +386,8 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
     >
       <CustomDialogTitle
         icon={<SettingsRounded />}
-        title="Settings"
-        subTitle="Manage Your settings and preferences"
+        title="Configurações"
+        subTitle="Gerencie suas configurações e preferências"
         onClose={handleDialogClose}
         removeDivider
       />
@@ -453,17 +453,17 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               </StyledSelect>
               <CustomSwitch
                 settingKey="enableGlow"
-                header="Enable Glow Effect"
-                text="Add a soft glow to tasks for better visibility."
+                header="Habilitar efeito de brilho"
+                text="Adicione um brilho suave às tarefas para melhor visibilidade."
               />
             </TabPanel>
             <TabPanel index={1}>
               <TabHeading>Configurações Gerais</TabHeading>
               <CustomSwitch
                 settingKey="enableCategories"
-                header="Enable Categories"
+                header="Habilitar categorias"
                 text="
-              Enable categories to organize your tasks."
+              Habilite categorias para organizar suas tarefas."
               />
               {systemInfo.isPWA && "setAppBadge" in navigator && (
                 <CustomSwitch
@@ -474,8 +474,8 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               )}
               <CustomSwitch
                 settingKey="doneToBottom"
-                header="Completed Tasks at Bottom"
-                text="Move completed tasks to the bottom of the list to keep your active tasks more visible."
+                header="Tarefas concluídas na parte inferior"
+                text="Mova as tarefas concluídas para o final da lista para manter suas tarefas ativas mais visíveis."
               />
             </TabPanel>
             <TabPanel index={2}>
@@ -501,9 +501,9 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               <SectionHeading>Seletor de Emoji Simples</SectionHeading>
               <CustomSwitch
                 settingKey="simpleEmojiPicker"
-                header="Enable simple emoji picker"
+                header="Habilitar seletor de emoji simples"
                 text="
-              Use a simple emoji picker with only recently used emojis. This will make the emoji picker load faster."
+              Use um seletor de emojis simples com apenas emojis usados ​​recentemente. Isso fará com que o seletor de emojis carregue mais rápido."
               />
 
               <SectionHeading>Dados de Emoji</SectionHeading>
@@ -539,7 +539,7 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                     window.speechSynthesis.pause();
                   } else {
                     const textToRead =
-                      "This is a sample text for testing the speech synthesis feature.";
+                      "Este é um texto de exemplo para testar o recurso de fala.";
                     const utterance = new SpeechSynthesisUtterance(textToRead);
                     const voices = window.speechSynthesis.getVoices() ?? [];
                     utterance.voice =
@@ -555,10 +555,10 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                   setIsSampleReading((prev) => !prev);
                 }}
               >
-                {isSampleReading ? <StopCircleRounded /> : <RecordVoiceOverRounded />} &nbsp; Play
-                Sample
+                {isSampleReading ? <StopCircleRounded /> : <RecordVoiceOverRounded />} &nbsp; Teste
+                Reprodução
               </Button>
-              <SectionHeading>Voice Selection</SectionHeading>
+              <SectionHeading>Seleção de Voz</SectionHeading>
               {filteredVoices.length !== 0 ? (
                 <StyledSelect
                   value={user.settings.voice}
@@ -658,7 +658,7 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                 </StyledSelect>
               ) : (
                 <NoVoiceStyles>
-                  There are no voice styles available.
+                  Não há estilos de voz disponíveis.
                   <Tooltip title="Refetch voices">
                     <IconButton
                       size="large"
@@ -674,10 +674,10 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               {!isOnline && availableVoices.some((voice) => voice.localService === false) && (
                 <Alert severity="warning" sx={{ mt: "8px" }}>
                   <AlertTitle>Offline Mode</AlertTitle>
-                  You are currently offline. Some Voices may require an internet connection to work.
+                  Você está offline no momento. Algumas vozes podem exigir uma conexão com a internet para funcionar..
                 </Alert>
               )}
-              <SectionHeading>Voice Volume</SectionHeading>
+              <SectionHeading>Volume da voz</SectionHeading>
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <VolumeSlider spacing={2} direction="row" alignItems="center">
                   <Tooltip title={voiceVolume ? "Mute" : "Unmute"} onClick={handleMuteClick}>
@@ -713,10 +713,10 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
             </TabPanel>
             <TabPanel index={4}>
               {/* TODO: add shortcut more shortcuts and custom hook */}
-              <TabHeading>Keyboard Shortcuts</TabHeading>
+              <TabHeading>Atalhos de teclado</TabHeading>
               <ShortcutItem
-                name="Quick Export"
-                description="Save all tasks and download as JSON file"
+                name="Exportação rápida"
+                description="Salve todas as tarefas e baixe como arquivo JSON"
                 keys={["Ctrl", "S"]}
               />
               {/* <ShortcutItem
@@ -726,11 +726,11 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               /> */}
             </TabPanel>
             <TabPanel index={5}>
-              <TabHeading>About Todo App</TabHeading>
+              <TabHeading>Sobre o aplicativo</TabHeading>
               <Typography variant="body1" sx={{ mb: 2 }}>
-                📝 A simple todo app project made using React.js and MUI with many features,
-                including sharing tasks via link, theme customization and offline usage as a
-                Progressive Web App (PWA).
+                📝 Um projeto simples de aplicativo de tarefas feito com React.js e MUI com diversos recursos,
+                incluindo compartilhamento de tarefas via link, personalização de tema e uso offline como um
+                plicativo Web Progressivo (PWA).
               </Typography>
               <img
                 src={baner}
@@ -738,14 +738,14 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                 alt="Todo App Screenshot"
               />
               <Typography variant="caption" sx={{ display: "block", mt: 2 }}>
-                Created by <Link href="https://github.com/natansilva31">natansilva31</Link> <br />
-                Explore the project on GitHub:{" "}
+                Criado por <Link href="https://github.com/natansilva31">natansilva31</Link> <br />
+                Explore o projeto no GitHub:{" "}
                 <Link
                   href="https://github.com/natansilva31/TodoApp"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Todo App Repository
+                  Todo App Repositório
                 </Link>
               </Typography>
               {storageUsage !== undefined && storageUsage !== 0 && (
@@ -754,7 +754,7 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                   <FormGroup>
                     <FormLabel sx={{ display: "flex", alignItems: "center", gap: "6px" }}>
                       <Inventory2Rounded sx={{ fontSize: "18px" }} />
-                      Storage Usage
+                      Uso de armazenamento
                     </FormLabel>
                     <Box sx={{ mt: "2px" }}>
                       {storageUsage ? `${(storageUsage / 1024 / 1024).toFixed(2)} MB` : "0 MB"}
@@ -786,7 +786,7 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
             }}
             onClick={handleDialogClose}
           >
-            Close
+            Fechar
           </Button>
         </Box>
       )}

@@ -410,7 +410,7 @@ export const ProfileSidebar = () => {
 
           <CreditsContainer translate="no">
             <span style={{ display: "flex", alignItems: "center" }}>
-              Made with &nbsp;
+              Feito com &nbsp;
               <Favorite sx={{ fontSize: "14px" }} />
             </span>
             <span style={{ marginLeft: "6px", marginRight: "4px" }}>by</span>
@@ -425,7 +425,7 @@ export const ProfileSidebar = () => {
             {lastUpdate && (
               <Tooltip title={timeAgo(new Date(lastUpdate))}>
                 <span>
-                  Last update:{" "}
+                  Última atualização:{" "}
                   {new Intl.DateTimeFormat(navigator.language, {
                     dateStyle: "long",
                     timeStyle: "medium",
@@ -445,12 +445,12 @@ export const ProfileSidebar = () => {
           onClose={() => setOpenInstalledDialog(false)}
         />
         <DialogContent>
-          You can access it from your home screen, with offline support and features like shortcuts
-          and badges.
+          Você pode acessá-lo na tela inicial, com suporte offline e recursos como atalhos
+          e emblemas.
         </DialogContent>
         <DialogActions>
           <DialogBtn onClick={() => setOpenInstalledDialog(false)}>
-            <ThumbUpRounded /> &nbsp; Got it
+            <ThumbUpRounded /> &nbsp; Entendi
           </DialogBtn>
         </DialogActions>
       </Dialog>
