@@ -50,13 +50,13 @@ Compartilhe facilmente suas tarefas com outras pessoas usando um link ou código
 
 Os usuários podem escolher vários temas de cores do aplicativo e optar entre o modo claro e o modo escuro..
 
-<img src="https://github.com/NatanSilva31/TodoApp/blob/493524e4204219344f65f9c5ac2ee5a5d0d7fc19/screenshots/ColorThemes.png" width="200px" alt="Color Themes" />
+<img src="https://github.com/NatanSilva31/TodoApp/blob/493524e4204219344f65f9c5ac2ee5a5d0d7fc19/screenshots/ColorThemes.png" width="500px" alt="Color Themes" />
 
 ### 🗣️ Tarefa de Leitura em Voz Alta
 
 Opção de ter tarefas lidas em voz alta usando a API nativa `SpeechSynthesis`, com uma seleção de vozes para escolher.
 
-<img src="https://github.com/NatanSilva31/TodoApp/blob/493524e4204219344f65f9c5ac2ee5a5d0d7fc19/screenshots/ReadAloud.png" width="260px" alt="Task Reading Aloud" />
+<img src="https://github.com/NatanSilva31/TodoApp/blob/493524e4204219344f65f9c5ac2ee5a5d0d7fc19/screenshots/ReadAloud.png" width="500px" alt="Task Reading Aloud" />
 
 ## 💻 Tecnologias utilizadas
 
