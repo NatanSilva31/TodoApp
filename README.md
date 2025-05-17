@@ -2,7 +2,7 @@
 
 ## [https://natansilva31.github.io/TodoApp/](https://natansilva31.github.io/TodoApp/)
 
-<img src="https://github.com/NatanSilva31/TodoApp/blob/493524e4204219344f65f9c5ac2ee5a5d0d7fc19/screenshots/TelaInicial.png" alt="Splash Screen Example" width="300px" />
+<img src="https://github.com/NatanSilva31/TodoApp/blob/493524e4204219344f65f9c5ac2ee5a5d0d7fc19/screenshots/TelaInicial.png" alt="Splash Screen Example" width="500px" />
 
 ## 🏆 Time
 
