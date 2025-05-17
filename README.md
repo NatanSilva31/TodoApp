@@ -40,9 +40,9 @@ Jonas Vieira Gusman<br/>
 
 Compartilhe facilmente suas tarefas com outras pessoas usando um link ou código QR, com a opção de baixar o código QR.
 
-**[Link com Exemplo](https://natansilva31.github.io/TodoApp/#/share?task=N4IgJg9gdgpiBcAzAhgGwM4wDQgA4EspYwEUNsQpkBbOeEABQCcIArGAFwgAIBlGKgGNuAWm4AVZExgp0IHGBjpBTfLg75oCEAGFVyAOcBjnou4BXat1wt2XbgDcIqDskjWpybivyGT3M1dpWXkQGGo2fG0ARkQAFgA2AA4RACYABnSwEVi4gCM80MFnCCZtAGIAMUqAUQBBVKTQsGQOOhAM1IBWEXSevvFopPhUgGYRroA6dOjUgC1mmDdUQnbO-p6M8XTU+C6ATnhM6cyFnEFWmABzUoBPBABtUHwSemQUdMQwPLiRRATkiI4mAusgRPs3OkgTBUqkwKk8kkYEk4tFQlRaNoamBzBdjBBQuFIjF4i0iiUyvRyohEEjUnEQABfLDPV4gJIJUZJPLIREiPJdQQ9OL7BK-fag6I5PIJPKjQSCdLINwJdE0doAESUAicqAc+FoUC4hIirCi9FioJ6iBgn3JqFKFS66QS0WqTIAujhUMh0BxeMgHGsdhtel1BsMxvA4qNJkkOQtGUA&userName=User)**
+**[Link com Exemplo]()**
 
-<img src="https://github.com/NatanSilva31/TodoApp/blob/main/screenshots/ShareDialog.png" width="300px" alt="Shared Task" />
+<img src="" width="300px" alt="Shared Task" />
 
 ## 💻 Tecnologias utilizadas
 
