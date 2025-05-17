@@ -414,8 +414,8 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
         >
           <TabGroupProvider value={tabValue} name="settings">
             <TabPanel index={0}>
-              <TabHeading>Appearance</TabHeading>
-              <SectionHeading>Dark Mode Options</SectionHeading>
+              <TabHeading>Aparência</TabHeading>
+              <SectionHeading>Opções de Modo Escuro</SectionHeading>
               <CustomRadioGroup
                 options={darkModeOptions}
                 value={darkModeValue}
@@ -427,7 +427,7 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                   }));
                 }}
               />
-              <SectionHeading>Theme Selection</SectionHeading>
+              <SectionHeading>Seleção de Tema</SectionHeading>
               <StyledSelect
                 value={user.theme}
                 onChange={handleAppThemeChange}
@@ -458,7 +458,7 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               />
             </TabPanel>
             <TabPanel index={1}>
-              <TabHeading>General Settings</TabHeading>
+              <TabHeading>Configurações Gerais</TabHeading>
               <CustomSwitch
                 settingKey="enableCategories"
                 header="Enable Categories"
@@ -479,8 +479,8 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               />
             </TabPanel>
             <TabPanel index={2}>
-              <TabHeading>Emoji Settings</TabHeading>
-              <SectionHeading>Emoji Style</SectionHeading>
+              <TabHeading>Configurações de Emoji</TabHeading>
+              <SectionHeading>Estilos de Emoji</SectionHeading>
               <CustomRadioGroup
                 options={emojiStyles}
                 value={emojiStyleValue}
@@ -494,11 +494,11 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               />
               {!isOnline && (
                 <Alert severity="warning" sx={{ mt: "8px" }}>
-                  <AlertTitle>Offline Mode</AlertTitle>
-                  You are currently offline. Non-native emoji styles may not load.
+                  <AlertTitle>Modo Offline</AlertTitle>
+                  Você está atualmente offline. Estilos de emoji não nativos podem não ser carregados.
                 </Alert>
               )}
-              <SectionHeading>Simple Emoji Picker</SectionHeading>
+              <SectionHeading>Seletor de Emoji Simples</SectionHeading>
               <CustomSwitch
                 settingKey="simpleEmojiPicker"
                 header="Enable simple emoji picker"
@@ -506,8 +506,8 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
               Use a simple emoji picker with only recently used emojis. This will make the emoji picker load faster."
               />
 
-              <SectionHeading>Emoji Data</SectionHeading>
-              <SectionDescription> Clear data about recently used emojis</SectionDescription>
+              <SectionHeading>Dados de Emoji</SectionHeading>
+              <SectionDescription> Limpar dados dos emojis recentemente usados</SectionDescription>
               <Button
                 variant="contained"
                 color="error"
@@ -516,18 +516,18 @@ export const SettingsDialog = ({ open, onClose }: SettingsProps) => {
                   showToast("Removed emoji data.");
                 }}
               >
-                <DeleteRounded /> &nbsp; Clear Emoji Data
+                <DeleteRounded /> &nbsp; Limpar dados do Emoji
               </Button>
             </TabPanel>
             <TabPanel index={3}>
-              <TabHeading>Read Aloud Settings</TabHeading>
+              <TabHeading>Configurações de Leitura em Voz Alta</TabHeading>
               {!("speechSynthesis" in window) && (
                 <Alert severity="error">
                   <AlertTitle>Speech Synthesis Not Supported</AlertTitle>
                   Your browser does not support built in text-to-speech.
                 </Alert>
               )}
-              <SectionHeading>Play Sample</SectionHeading>
+              <SectionHeading>Reproduzir Amostra</SectionHeading>
               <Button
                 variant="contained"
                 disabled={!("speechSynthesis" in window)}
