@@ -2,6 +2,8 @@
 
 ## [https://natansilva31.github.io/TodoApp/](https://natansilva31.github.io/TodoApp/)
 
+<img src="screenshots/SplashScreen.png" alt="Splash Screen Example" width="300px" />
+
 ## 🏆 Time
 
 #### 👨‍💻 Desenvolvedores
@@ -43,6 +45,18 @@ Compartilhe facilmente suas tarefas com outras pessoas usando um link ou código
 **[Link com Exemplo](https://natansilva31.github.io/TodoApp/#/share?task=N4IgJg9gdgpiBcAzAhgGwM4wDQgA4EspYwEUNsQpkBbOeEABQCcIArGAFwgAIBlGKgGMQOMDHSCm+XB3zQEjFuy58ByYThjU2+BQEZEAFgBsADgC0BgMyIARuYBMABidhLR27ZEhBEVBCYFAGIAVidjPQAxSO8wZA46EGcHEPMnVL0AdgAVBwd4J0z4KxCAOicHTIAtWJhkMFRCROTU9MsATmyXAqdvQXiYAHMAgE8EAG1QfBJ6ZBQnRDBbQ3NEYzNzQzAQ5HN2+qdNmDywB1tTGFNDPW8qWgUAUTAAV36Ac4BjiG8tHX0jOJ9PwBYKIRAXByGEAAXywUxmIEQMGWghCG0ytgciE2ERWV1MVnMpmQIRQF2Q7Ss7RuODuiQAwgBnsD4YY-bSsXT0Aw7VJIhZA-yBeihcJRGLQgC6OFQyHQHF4yAAbs0Kq0Mjk8vA9CECmVMno9DVoUA&userName=Natanael%20Silva)**
 
 <img src="https://github.com/NatanSilva31/TodoApp/blob/45f8c1359b151f14806293381a3d44b6ec359477/screenshots/ShareDialog.png" width="300px" alt="Shared Task" />
+
+### 🎨  Temas de Cores
+
+Os usuários podem escolher vários temas de cores do aplicativo e optar entre o modo claro e o modo escuro..
+
+<img src="https://raw.githubusercontent.com/maciekt07/TodoApp/main/screenshots/ColorThemes.png" width="200px" alt="Color Themes" />
+
+### 🗣️ Tarefa de Leitura em Voz Alta
+
+Opção de ter tarefas lidas em voz alta usando a API nativa `SpeechSynthesis`, com uma seleção de vozes para escolher.
+
+<img src="https://raw.githubusercontent.com/maciekt07/TodoApp/main/screenshots/ReadAloud.png" width="260px" alt="Task Reading Aloud" />
 
 ## 💻 Tecnologias utilizadas
 
