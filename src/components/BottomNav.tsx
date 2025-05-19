@@ -84,7 +84,7 @@ export const BottomNav = (): JSX.Element | null => {
       >
         <NavigationButton
           onClick={() => n("/")}
-          label="Tasks"
+          label="Tarefas"
           icon={
             <Badge
               color="primary"
@@ -97,7 +97,7 @@ export const BottomNav = (): JSX.Element | null => {
         />
         <NavigationButton
           onClick={() => n("/categories")}
-          label="Categories"
+          label="Categorias"
           icon={<CategoryRounded sx={{ fontSize: smallIconSize }} />}
           disabled={!settings.enableCategories}
         />
@@ -115,12 +115,12 @@ export const BottomNav = (): JSX.Element | null => {
         />
         <NavigationButton
           onClick={() => n("transfer")}
-          label="Transfer"
+          label="Transferir"
           icon={<GetAppRounded sx={{ fontSize: smallIconSize }} />}
         />
         <NavigationButton
           onClick={() => n("user")}
-          label="Profile"
+          label="Perfil"
           icon={<PersonRounded sx={{ fontSize: smallIconSize }} />}
         />
       </StyledBottomNavigation>
